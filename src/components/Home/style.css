@@ -1,0 +1,86 @@
+.sidebar{
+    height: 100vh;
+    overflow: auto;
+    background-color:#fff;
+}
+.profile-top{
+    
+}
+.profile{
+    background-color:#7E30E1;
+    border: 2px solid #a9eec267;
+
+}
+.sidebar ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar ul li a{
+    padding: 5px;
+    /* background-color: #d9d8d825; */
+    margin-top: 20px;
+    border-radius: 100px;
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    /* box-shadow: 0px 0px 10px #000; */
+    /* border: 1px solid #bab8b830; */
+    display: flex;
+    align-items: center;
+}
+.sidebar ul li a:hover{
+    background-color: #deecff;
+    cursor: pointer;
+
+}
+.sidebar ul li a i{
+    /* background-color: #E26EE5; */
+    display: block;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 100px;
+    color: var(--primary-color) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dd52f3b7;
+}
+
+.dashboard-top{
+    min-height: 150px;
+    /* background: linear-gradient(45deg, #200124bd, #190001); */
+    background-color: #1d1d1d;
+    border-radius: 10px;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    letter-spacing: 3px;
+
+
+}
+.g-border{
+    background: linear-gradient(45deg, #c103da, #f1171a);
+    padding: 3px;
+    border-radius: 10px;
+}
+.library{
+    min-height: 150px;
+    /* background: url(https://static.vecteezy.com/system/resources/previews/026/275/336/non_2x/back-to-school-seamless-pattern-in-doodle-style-hand-drawn-school-supplies-stationery-on-dark-blue-background-vector.jpg) no-repeat center;
+    background-size: cover; */
+    border-radius: 20px;
+}
+.progressSkill{
+    height: 150px !important;
+}
+.email{
+    word-break: break-all;
+}
+.dashboard{
+    /* background: url(https://media.geeksforgeeks.org/img-practice/prod/courses/1/Web/Other/Course-Page-Course-Mobile-Background-Dark%201_1703843808.png) no-repeat center;
+    background-size: cover; */
+    height: 100vh;
+}
