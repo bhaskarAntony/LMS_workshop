@@ -23,7 +23,6 @@ const Login = () => {
             const user = userCredential.user;
             console.log(user);
             toast.success("sign in successfull")
-            window.location.reload();
             navigate('/');
         })
         .catch((error) => {

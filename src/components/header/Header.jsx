@@ -21,6 +21,7 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { deepOrange, deepPurple } from '@mui/material/colors';
+import { toast } from 'react-toastify';
 
 
 function Header() {
@@ -56,7 +57,7 @@ function Header() {
     const handleLogout = () => {               
         signOut(auth).then(() => {
         // Sign-out successful.
-            alert("Signed out successfully")
+            toast.success("Signed out successfully");
             window.location.reload();
         }).catch((error) => {
         // An error happened.

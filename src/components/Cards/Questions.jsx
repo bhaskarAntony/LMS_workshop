@@ -47,7 +47,7 @@ function Questions() {
         <MainVideo/>
         <div className="mcq-top d-flex justify-content-between align-items-center">
            <div>
-           <label htmlFor="" className='d-block fs-3'>Workshop Recordings</label>
+           <label htmlFor="" className='d-block fs-3'>Workshop Questions</label>
             <small className='text-secondary'>Improve Your Learning Progress</small>
            </div>
            <div>

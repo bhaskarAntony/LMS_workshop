@@ -45,20 +45,11 @@ function App() {
        <ToastContainer />
       <Router>
         <Routes>
-       
-          {
-            myuser?(
-              <Route path="/" element={<HomePage />} />
-            ):(
-              <Route path="/" element={<Login />} />
-            )
-          }
          <Route path="/" element={<HomePage />} />
           <Route path="/download/:link" element={<NoData />} />
           <Route path="/signin" element={<Login />} />
           <Route path="/attend/assessment/:id" element={<Test />} />
           <Route path="/signup" element={<SignUp />} />
-
         </Routes>
       </Router>
     </div>
