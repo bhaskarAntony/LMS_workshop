@@ -128,7 +128,7 @@ function Test() {
   return (
   <div className="test-container container-fluid ">
      <div className="row">
-     <div className="col-12 col-md-3 col-lg-2 m-0 p-0">
+     <div className="col-12 col-md-3 col-lg-2 m-0 p-0  d-lg-block d-none d-sm-none d-md-block">
                 <div className="sidebar p-2">
                   <div className="logo p-3">
                     <img src="https://bepractical.s3.us-east-2.amazonaws.com/brand-logo.cc6e3cf088a8fd3005b1.jpg" alt="logo" width={180} />

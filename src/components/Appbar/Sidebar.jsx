@@ -2,7 +2,7 @@ import React from 'react'
 
 function Sidebar() {
   return (
-    <div className="sidebar p-2   d-lg-block d-none d-sm-none d-md-block">
+    <div className="sidebar p-2">
                   <div className="logo p-3">
                     <img src="https://bepractical.s3.us-east-2.amazonaws.com/brand-logo.cc6e3cf088a8fd3005b1.jpg" alt="logo" width={180} />
                   </div>

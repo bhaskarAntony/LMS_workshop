@@ -93,7 +93,7 @@ function Home() {
     <section className="home">
        <div className="container-fluid overflow-hidden">
        <div className="row">
-            <div className="col-12 col-md-3 col-lg-2 m-0 p-0">
+            <div className="col-12 col-md-3 col-lg-2 m-0 p-0  d-lg-block d-none d-sm-none d-md-block">
                 <Sidebar/>
             </div>
             <div className="col-12 col-md-9 col-lg-10 m-0 p-0 bg-light">
