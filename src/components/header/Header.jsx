@@ -4,13 +4,24 @@ import { auth } from '../../Database/firebase';
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import './style.css'
 import logout from '../images/logout.gif'
-import Dialog from '@mui/material/'.' from '@mui/material/Divider';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Box from '@mui/material/Box';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import { deepOrange, deepPurple } from '@mui/material/colors';
+
 
 function Header() {
     const [user, setUser] = useState(false)
@@ -62,102 +73,91 @@ function Header() {
     };
   return (
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-     <input type="text" />
-      <form class="d-flex gap-2 align-items-center">
-        {
-            user?(
-              <>
-        
-               <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="Account settings">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={openmenu ? 'account-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={openmenu ? 'true' : undefined}
-          >
-            <Avatar sx={{bgcolor: deepOrange[800], width: 32, height: 32 }}>{userId?userId[0].toUpperCase(): "U"}</Avatar>
-          </IconButton>
-        </Tooltip>
-      </Box>
-               <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={openmenu}
-        onClose={handleCloser}
-        onClick={handleCloser}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
-            '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
-            '&::before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+    <form class="d-flex gap-2 align-items-center">
+    {
+        user?(
+          <>
+           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+    <Tooltip title="Account settings">
+      <IconButton
+        onClick={handleClick}
+        size="small"
+        sx={{ ml: 2 }}
+        aria-controls={openmenu ? 'account-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={openmenu ? 'true' : undefined}
       >
-        <MenuItem onClick={handleCloser}>
-        <Avatar sx={{bgcolor: deepOrange[800], width: 32, height: 32 }}>{userId?userId[0].toUpperCase(): "U"}</Avatar> Profile
-        </MenuItem>
-        <MenuItem onClick={handleCloser}>
-          <Avatar /> My account
-        </MenuItem>
-        <Divider />
-        <MenuItem onClick={handleCloser}>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
-        <MenuItem onClick={handleCloser}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
-        <MenuItem onClick={handleLogout}>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
-        </MenuItem>
-      </Menu>
-              </>
-            ):(
-               <a href='/signup'> <Button variant="contained" className='w-100'>create Account</Button></a>
-            )
-        }
-      </form>
-    </div>
-  </div>
-</nav>
+        <Avatar sx={{bgcolor: deepOrange[800], width: 32, height: 32 }}>{userId?userId[0].toUpperCase(): "U"}</Avatar>
+      </IconButton>
+    </Tooltip>
+  </Box>
+           <Menu
+    anchorEl={anchorEl}
+    id="account-menu"
+    open={openmenu}
+    onClose={handleCloser}
+    onClick={handleCloser}
+    PaperProps={{
+      elevation: 0,
+      sx: {
+        overflow: 'visible',
+        filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+        mt: 1.5,
+        '& .MuiAvatar-root': {
+          width: 32,
+          height: 32,
+          ml: -0.5,
+          mr: 1,
+        },
+        '&::before': {
+          content: '""',
+          display: 'block',
+          position: 'absolute',
+          top: 0,
+          right: 14,
+          width: 10,
+          height: 10,
+          bgcolor: 'background.paper',
+          transform: 'translateY(-50%) rotate(45deg)',
+          zIndex: 0,
+        },
+      },
+    }}
+    transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+    anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+  >
+    <MenuItem onClick={handleCloser}>
+    <Avatar sx={{bgcolor: deepOrange[800], width: 32, height: 32 }}>{userId?userId[0].toUpperCase(): "U"}</Avatar> Profile
+    </MenuItem>
+    <MenuItem onClick={handleCloser}>
+      <Avatar /> My account
+    </MenuItem>
+    <Divider />
+    <MenuItem onClick={handleCloser}>
+      <ListItemIcon>
+        <PersonAdd fontSize="small" />
+      </ListItemIcon>
+      Add another account
+    </MenuItem>
+    <MenuItem onClick={handleCloser}>
+      <ListItemIcon>
+        <Settings fontSize="small" />
+      </ListItemIcon>
+      Settings
+    </MenuItem>
+    <MenuItem onClick={handleLogout}>
+      <ListItemIcon>
+        <Logout fontSize="small" />
+      </ListItemIcon>
+      Logout
+    </MenuItem>
+  </Menu>
+          </>
+        ):(
+           <a href='/signup'> <Button variant="contained" className='w-100'>create Account</Button></a>
+        )
+    }
+  </form>
 <Dialog
         open={open}
         onClose={handleClose}

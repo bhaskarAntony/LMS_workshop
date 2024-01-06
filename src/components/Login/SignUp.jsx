@@ -6,40 +6,51 @@ import { Button, TextField } from '@mui/material';
 import './style.css'
 import signUpImage from '../images/business-idea.svg'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 const SignUp = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [name, setName] = useState();
+    const [userData, setUserData] = useState({
+     
+    })
     const navigate = useNavigate();
   
     const handleLogin = async () => {
       try {
-        await createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            //  // Save additional user details to the database
-            //     database.ref(`users/${user.uid}`).set({
-            //         email: user.email,
-            //         // Add more details as needed
-            //     });
-            console.log(user);
-            alert("created")
-            navigate('/signin')
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-            // ..
-        });
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+    
+        const userData = {
+          username: name,
+          firstday: [
+            {
+              unit1: 123,
+              unit2: 123,
+              unit3: 123,
+              unit4: 12377,
+            },
+          ],
+          userId: user.uid,
+          userEmail: user.email,
+        };
+    
+        await axios.post('http://localhost:3200/api/addlmsUser', userData);
+        
+        console.log(user);
+        alert("created");
+        // navigate('/signin') // Uncomment if you are using a navigation library
       } catch (error) {
-        alert(error.message);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(errorCode, errorMessage);
+        
+        alert(`Error: ${errorMessage}`);
       }
     };
+    
   
     return (
         <div className='login-container container'>
@@ -52,7 +63,7 @@ const SignUp = () => {
          <h2>Create New Account</h2>
          <div className="mt-3">
         <label>Username</label>
-         <TextField fullWidth label="Your Name" id="fullWidth" type="text" className='mt-2' value={email} onChange={(e) => setEmail(e.target.value)} />
+         <TextField fullWidth label="Your Name" id="fullWidth" type="text" className='mt-2' value={name} onChange={(e) => setName(e.target.value)} />
         </div>
         <div className="mt-3">
         <label>Email</label>

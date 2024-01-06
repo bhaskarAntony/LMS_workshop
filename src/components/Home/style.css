@@ -2,15 +2,9 @@
     height: 100vh;
     overflow: auto;
     background-color:#fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
-.profile-top{
-    
-}
-.profile{
-    background-color:#7E30E1;
-    border: 2px solid #a9eec267;
 
-}
 .sidebar ul{
     list-style-type: none;
     padding: 0;
@@ -19,33 +13,23 @@
 .sidebar ul li a{
     padding: 5px;
     /* background-color: #d9d8d825; */
-    margin-top: 20px;
-    border-radius: 100px;
+    margin-top: 15px;
+    border-radius: 5px;
     display: block;
-    color: #000000;
+    color: #8e8e8e;
     text-decoration: none;
-    font-size: 1.2rem;
-    /* box-shadow: 0px 0px 10px #000; */
-    /* border: 1px solid #bab8b830; */
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
 }
 .sidebar ul li a:hover{
-    background-color: #deecff;
+    background-color: #8b8d8f16;
     cursor: pointer;
 
 }
 .sidebar ul li a i{
-    /* background-color: #E26EE5; */
-    display: block;
-    min-width: 40px;
-    min-height: 40px;
-    border-radius: 100px;
-    color: var(--primary-color) !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #dd52f3b7;
+    font-size: 1.5rem;
+    color: #5d2cff !important;
 }
 
 .dashboard-top{
@@ -83,4 +67,43 @@
     /* background: url(https://media.geeksforgeeks.org/img-practice/prod/courses/1/Web/Other/Course-Page-Course-Mobile-Background-Dark%201_1703843808.png) no-repeat center;
     background-size: cover; */
     height: 100vh;
+    overflow: auto;
 }
+.card1{
+    padding: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    min-height: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.workshop-card{
+    background-color: #7367f0;
+}
+.speaker img{
+    width: 50px;
+    border-radius: 100px;
+}
+
+
+.test-container{
+    background-color: #ffffff;
+    height: 100vh;
+    overflow: auto;
+}
+.main-mcq{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.q-option{
+    margin-bottom: 20px;
+}
+.library{
+    background-color: #F8FFD2;
+}
+.progress{
+    background-color: #FFEDC6 !important;
+}
+

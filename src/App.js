@@ -7,6 +7,7 @@ import SignUp from './components/Login/SignUp';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/header/Header';
 import NoData from './pages/HomePage/NoData';
+import Test from './components/Home/Test';
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/" element={<NoData />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/signin" element={<Login />} />
+          <Route path="/attend/assessment/:id" element={<Test />} />
+          <Route path="/signup" element={<SignUp />} />
+
         </Routes>
       </Router>
     </div>
