@@ -3,7 +3,7 @@ import axios from 'axios';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../Database/firebase';
 import './style.css'
-import { Button } from '@mui/material';
+import { Button, FormControlLabel, Radio, TextField } from '@mui/material';
 import Appbar from '../Appbar/Appbar';
 import { useParams } from 'react-router-dom';
 
@@ -155,20 +155,22 @@ function Test() {
         <div className="col-12 col-sm-12 col-md-10 h-100 p-0 m-0">
             <Appbar/>
         <div className="main-mcq">
-        <div className='p-3 mt-0'>
+        <div className='p-3 p-md-5 mt-0'>
         {!isQuizCompleted ? (
         <div>
           <p className='fs-4 text-main-danger'> {currentQuestion + 1}) {quizData[currentQuestion]?.question}</p>
           {quizData[currentQuestion]?.options.map((option, index) => (
             <div key={index} className="q-option">
-              <input
-                type="radio"
+             
+                <FormControlLabel 
                 name="quizOption"
-                className='text-900 fs-5 mx-2'
+                className='text-900 fs-4 mx-2'
                 value={option}
                 onChange={() => handleAnswerSelection(option)}
                 checked={userAnswers[currentQuestion] === option}
-              />
+                 control={<Radio />}
+                  label={option}
+                   />
               <label>{option}</label>c
              
             </div>
@@ -176,32 +178,29 @@ function Test() {
           ))}
            <div className="text-center mt-3 d-flex gap-2 justify-content-center actions">
             <div className='d-flex gap-2'>
-            <Button variant="contained" className='' onClick={handlePreviousQuestion}><i className="bi bi-chevron-double-left"></i>Previous</Button>
-              <Button variant="contained" className=''onClick={handleNextQuestion}>Next <i className="bi bi-chevron-double-right"></i></Button>
+            <Button variant="contained" className='p-3' onClick={handlePreviousQuestion}><i className="bi bi-chevron-double-left"></i>Previous</Button>
+              <Button variant="contained" className='p-3'onClick={handleNextQuestion}>Next <i className="bi bi-chevron-double-right"></i></Button>
             </div>
-              <Button variant="contained" className='bg-success' onClick={handleSubmitTest}>Submit<i className="bi bi-check"></i></Button>
+             
             </div>
         
         </div>
 
       ) : (
         <div>
+           <div className="row">
+            <div className="col-md-6 offset-md-3">
+            <h1 className='fs-2 text-center'>Hello Developer 👋...</h1>
           <p className='text-main-danger fs-3 text-center'>Your Score: {score} out of {quizData.length}</p>
-          <div className="text-center mt-3">
-            <label>
-              Name:
-              <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} />
-            </label>
+          <div className="mt-3">
+            <TextField id="outlined-basic" label="Developer Name" variant="outlined" type="text" value={userName} onChange={(e) => setUserName(e.target.value)}  className="mt-3 w-100"/> <br />
+        
+            <TextField id="outlined-basic" label="Phone Number" variant="outlined" type="tel" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} className="mt-3 w-100"/>
             <br />
-            <label>
-              Email:
-              <input type="email" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
-            </label>
-            <br />
-            <button className='btn-gray mt-3' onClick={handleSubmitTest}>
-              Submit Test
-            </button>
+            <Button variant="contained" className='w-100 mt-3 p-3' onClick={handleSubmitTest}>Submit<i className="bi bi-check"></i></Button>
           </div>
+            </div>
+           </div>
         </div>
       )}
         </div>

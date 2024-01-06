@@ -8,12 +8,12 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MainVideo from './MainVideo';
 
-function Video() {
+function Questions() {
     const [mcqData, setMcqData] = useState([]);
     useEffect(() => {
-        axios.get(`https://dull-trousers-deer.cyclic.app/api/Asslist`)
+        axios.get(`https://dull-trousers-deer.cyclic.app/api/Mcqlist`)
           .then(response => {
-            const limitedMcqData = response.data;
+            const limitedMcqData = response.data.slice(0, 6);
             setMcqData(limitedMcqData);  // Update to response.data
 
             console.log(response.data);  // Log the actual data
@@ -44,6 +44,7 @@ function Video() {
       
   return (
     <div className='mcqs p-2 p-md-3'>
+        <MainVideo/>
         <div className="mcq-top d-flex justify-content-between align-items-center">
            <div>
            <label htmlFor="" className='d-block fs-3'>Workshop Recordings</label>
@@ -88,21 +89,9 @@ function Video() {
         {
             mcqData.map((item, index)=>(
                 <li key={index} className='mb-3'>
-                  <div className="video mb-3">
-                    <div className="video-header">
-                      <a href='/' className="video-icon">
-                      <i class="bi bi-play-fill"></i>
-                      </a>
-                      <img src="https://images.prismic.io/edapp-website/ZDczM2M0ZGQtOGEwYi00ZDVhLWI1MjQtMjIzZjY1NDMxYjNl_training-record-software-png_iaa?auto=compress%2Cformat&rect=10%2C0%2C1340%2C700&w=768&h=627&q=15" alt="video" className='w-100 rounded-3'/>
-                    </div>
-                    <div className="video-body">
-                      <h1 className="fs-4 mt-3">{item.recordings.title}</h1>
-                      <small className="text-secondary">{item.recordings.description}</small>
-
-                  <a  href={item.recordings.video}>   <Button variant="contained" className='rounded-5 w-100 mt-3 p-3'>Watch Recordings</Button></a>
-                  <a href={`/download/${item.recordings.pdfLink}`}>   <Button variant="outlined" className='rounded-5 w-100 mt-3 p-3'>Download PDF</Button></a>
-                    </div>
-
+                  <div className="question d-flex align-items-center justify-content-between mb-3">
+                        <h1 className="fs-5 fw-light text-">Question{index+1}: <span className='blur-question text-secondary'>{item.question.slice(0, 20)}</span></h1>
+                        <Button variant="contained" className='rounded-5'>Take Test</Button>
                     </div>
                   
                 </li>
@@ -113,4 +102,4 @@ function Video() {
   )
 }
 
-export default Video
+export default Questions

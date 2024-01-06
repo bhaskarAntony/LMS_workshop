@@ -6,12 +6,15 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Shimmer } from 'react-shimmer';
 
 function Mcqs() {
     const [mcqData, setMcqData] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         axios.get(`https://dull-trousers-deer.cyclic.app/api/Asslist`)
           .then(response => {
+            setLoading(false)
             const limitedMcqData = response.data.slice(0, 6);
             setMcqData(limitedMcqData);  // Update to response.data
             console.log(response.data);  // Log the actual data
@@ -84,22 +87,32 @@ function Mcqs() {
         <hr />
       <ul className='m-0 p-0'>
         {
-            mcqData.map((item, index)=>(
-                <li key={index} className='mb-3'>
-                  <div className="assessment d-flex align-items-center justify-content-between mb-3">
-                       <div className="row align-items-center">
-                        <div className="col-12 col-sm-12 col-md-8">
-                        <h1 className="fs-5 fw-bold title d-flex align-items-center gap-2 justify-content-center"><i class="bi bi-journal-code text-main"></i> {item.topic}</h1>
-                        </div>
-                        <div className="col-12 col-sm-12 col-md-4 text-center">
-                        <a href={`/attend/assessment/${item._id}`} className='w-100'><Button variant="contained" className='rounded-5'>Take Test</Button></a>
-                        </div>
-                       </div>
-                    </div>
-                  
-                </li>
+           loading?(
+            Array(4)
+            .fill(null)
+            .map((_, index) => (
+            <>
+            <Shimmer width="100%" height={60} className='mb-3 rounded-3'/>
+            </>
             ))
-        }
+           ):(
+            mcqData.map((item, index)=>(
+              <li key={index} className='mb-3'>
+                <div className="assessment d-flex align-items-center justify-content-between mb-3">
+                     <div className="row align-items-center">
+                      <div className="col-12 col-sm-12 col-md-8">
+                      <h1 className="fs-5 fw-bold title d-flex align-items-center gap-2 justify-content-center"><i class="bi bi-journal-code text-main"></i> {item.topic}</h1>
+                      </div>
+                      <div className="col-12 col-sm-12 col-md-4 text-center">
+                      <a href={`/attend/assessment/${item._id}`} className='w-100'><Button variant="contained" className='rounded-5'>Take Test</Button></a>
+                      </div>
+                     </div>
+                  </div>
+                
+              </li>
+          )) 
+        )
+            }
       </ul>
     </div>
   )

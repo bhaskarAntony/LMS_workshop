@@ -7,6 +7,7 @@ import { Button, TextField } from '@mui/material';
 import './style.css'
 import loginImage from '../images/login.svg'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -21,12 +22,15 @@ const Login = () => {
             // Signed in
             const user = userCredential.user;
             console.log(user);
+            toast.success("sign in successfull")
+            window.location.reload();
             navigate('/');
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
+            toast.error(error.message)
         });
       } catch (error) {
         alert(error.message);

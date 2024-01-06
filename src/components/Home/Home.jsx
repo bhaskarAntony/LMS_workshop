@@ -14,6 +14,7 @@ import MainVideo from '../Cards/MainVideo';
 import Video from '../Cards/Videos';
 import Users from '../Cards/Users';
 import Sidebar from '../Appbar/Sidebar';
+import Questions from '../Cards/Questions';
 
 function Home() {
     const [userId, setUserId] = useState("")
@@ -78,13 +79,13 @@ function Home() {
                 label: 'Total',
                 formatter: (w) => {
                   // By default, this function returns the average of all series. The below is just an example to show the use of a custom formatter function
-                  return 249;
+                  return "90%";
                 },
               },
             },
           },
         },
-        labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
+        labels: ['Basics', 'Adwanced', 'day1', 'day2'],
       },
     });
     const [LmsuserData, setLmsUserData] = useState([]);
@@ -108,7 +109,7 @@ function Home() {
                   <div className="col-10 col-sm-9 col-md-8 d-flex flex-column justify-content-between">
                    <div>
                    <h1 className="fs-4 text-white">Java fullstack development</h1>
-                    <p className='text-light'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque molestiae fugiat explicabo unde repellat excepturi</p>
+                    <p className='text-light'>Acquire valuable, hands-on insights to launch your career in java fullstack development effectively</p>
                   </div>
                   <hr />
                   <div className="speaker d-flex gap-2 align-items-center text-white">
@@ -143,7 +144,7 @@ function Home() {
             </div>
 
             <div className="col-12 col-sm-12 col-md-7 mb-4">
-              <div className="card1 h-100">
+              <div className="card1 h-100 d-flex flex-column justify-content-between mcq">
                 <Mcqs/>
                 <div className="text-center">
                 <Button variant="outlined" className='rounded-5'>View All</Button>
@@ -155,12 +156,12 @@ function Home() {
                 <Video/>
               </div>
             </div>
-            <div className="col-12 col-sm-12 col-md-5">
+            <div className="col-12 col-sm-12 col-md-5 mb-4">
               <div className="card1 h-100">
-               
+               <Questions/>
               </div>
             </div>
-            <div className="col-12 col-sm-12 col-md-7">
+            <div className="col-12 col-sm-12 col-md-7 mb-4">
               <div className="card1 h-100">
                <div className="user-top d-flex align-items-center justify-content-between">
                 <h1 className="fs-4">Your Friends</h1>

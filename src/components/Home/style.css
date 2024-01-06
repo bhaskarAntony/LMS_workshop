@@ -74,7 +74,7 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     min-height: 200px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px !important;
     background-color: #fff;
 }
 .workshop-card{

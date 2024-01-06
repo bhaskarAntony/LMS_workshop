@@ -7,6 +7,7 @@ import './style.css'
 import signUpImage from '../images/business-idea.svg'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 const SignUp = () => {
@@ -40,14 +41,14 @@ const SignUp = () => {
         await axios.post('http://localhost:3200/api/addlmsUser', userData);
         
         console.log(user);
-        alert("created");
-        // navigate('/signin') // Uncomment if you are using a navigation library
+        toast.success("Account has been created")
+        navigate('/signin') // Uncomment if you are using a navigation library
       } catch (error) {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error(errorCode, errorMessage);
         
-        alert(`Error: ${errorMessage}`);
+        toast.error(error.message)
       }
     };
     
