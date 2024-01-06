@@ -11,7 +11,7 @@ import MainVideo from './MainVideo';
 function Video() {
     const [mcqData, setMcqData] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:3200/api/Mcqlist`)
+        axios.get(`https://dull-trousers-deer.cyclic.app/api/Mcqlist`)
           .then(response => {
             const limitedMcqData = response.data.slice(0, 6);
             setMcqData(limitedMcqData);  // Update to response.data

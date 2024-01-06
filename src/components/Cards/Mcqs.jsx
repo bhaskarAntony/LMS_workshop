@@ -10,7 +10,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 function Mcqs() {
     const [mcqData, setMcqData] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:3200/api/Asslist`)
+        axios.get(`https://dull-trousers-deer.cyclic.app/api/Asslist`)
           .then(response => {
             const limitedMcqData = response.data.slice(0, 6);
             setMcqData(limitedMcqData);  // Update to response.data

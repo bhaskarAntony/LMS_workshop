@@ -47,7 +47,7 @@ function Test() {
     }, [])
 
     useEffect(() => {
-        axios.get(`http://localhost:3200/api/assessments/${id}`)
+        axios.get(`https://dull-trousers-deer.cyclic.app/api/assessments/${id}`)
           .then(response => {
             const shuffledQuestions = shuffleArray(response.data.assessments);
             console.log(response.data.assessments);
@@ -112,7 +112,7 @@ function Test() {
       userId: userId.uid,
     };
 
-    axios.post('http://localhost:3200/api/addScores', userData)
+    axios.post('https://dull-trousers-deer.cyclic.app/api/addScores', userData)
       .then(response => {
         console.log('Test results submitted successfully:', response.data);
         // You can add any additional logic or UI updates here

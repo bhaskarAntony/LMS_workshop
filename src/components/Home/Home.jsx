@@ -43,7 +43,7 @@ function Home() {
    
 
     useEffect(() => {
-      axios.get(`http://localhost:3200/api/lmsUser/iTYwnxtDwiXNF9GMIJUmLBgqgp52`)
+      axios.get(`https://dull-trousers-deer.cyclic.app/api/lmsUser/iTYwnxtDwiXNF9GMIJUmLBgqgp52`)
         .then(response => {
           setUserdata(response.data);  // Update to response.data
           console.log(response.data);  // Log the actual data
