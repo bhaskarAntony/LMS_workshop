@@ -8,18 +8,22 @@ import signUpImage from '../images/business-idea.svg'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Loading from '../Cards/Loading';
 
 
 const SignUp = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [name, setName] = useState();
+    const [loading, setLoading] = useState(false)
+
     const [userData, setUserData] = useState({
      
     })
     const navigate = useNavigate();
   
     const handleLogin = async () => {
+      setLoading(true)
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
@@ -41,6 +45,8 @@ const SignUp = () => {
         await axios.post('http://localhost:3200/api/addlmsUser', userData);
         
         console.log(user);
+         setLoading(false)
+
         toast.success("Account has been created")
         navigate('/signin') // Uncomment if you are using a navigation library
       } catch (error) {
@@ -55,30 +61,36 @@ const SignUp = () => {
   
     return (
         <div className='login-container container'>
-        <div className="row">
-        <div className="col-12 col-md-6">
-        <img src={signUpImage} alt="login-image" className="w-100" />
-      </div>
-        <div className="col-12 col-md-6">
-         <div className="login-card p-3">
-         <h2>Create New Account</h2>
-         <div className="mt-3">
-        <label>Username</label>
-         <TextField fullWidth label="Your Name" id="fullWidth" type="text" className='mt-2' value={name} onChange={(e) => setName(e.target.value)} />
+       {
+        loading?(
+          <Loading/>
+        ):(
+          <div className="row">
+          <div className="col-12 col-md-6">
+          <img src={signUpImage} alt="login-image" className="w-100" />
         </div>
-        <div className="mt-3">
-        <label>Email</label>
-         <TextField fullWidth label="Your Email" id="fullWidth" type="email" className='mt-2' value={email} onChange={(e) => setEmail(e.target.value)} />
-        </div>
-        <div className="mt-3">
-        <label>Password</label>
-         <TextField fullWidth label="Your Password" id="fullWidth" type="password" className='mt-2' value={password} onChange={(e) => setPassword(e.target.value)} />
-        </div>
-        <p className='mt-2'>Do you have Already Account? <a href="/signin">Sign in</a></p>
-         <Button variant="contained" onClick={handleLogin} className='w-100 mt-3 p-3'>Create Account</Button>
-         </div>
-         </div>
-        </div>
+          <div className="col-12 col-md-6">
+           <div className="login-card p-3">
+           <h2>Create New Account</h2>
+           <div className="mt-3">
+          <label>Username</label>
+           <TextField fullWidth label="Your Name" id="fullWidth" type="text" className='mt-2' value={name} onChange={(e) => setName(e.target.value)} />
+          </div>
+          <div className="mt-3">
+          <label>Email</label>
+           <TextField fullWidth label="Your Email" id="fullWidth" type="email" className='mt-2' value={email} onChange={(e) => setEmail(e.target.value)} />
+          </div>
+          <div className="mt-3">
+          <label>Password</label>
+           <TextField fullWidth label="Your Password" id="fullWidth" type="password" className='mt-2' value={password} onChange={(e) => setPassword(e.target.value)} />
+          </div>
+          <p className='mt-2'>Do you have Already Account? <a href="/signin">Sign in</a></p>
+           <Button variant="contained" onClick={handleLogin} className='w-100 mt-3 p-3'>Create Account</Button>
+           </div>
+           </div>
+          </div>
+        )
+       }
        </div>
     );
   };

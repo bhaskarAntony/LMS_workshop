@@ -6,6 +6,7 @@ import './style.css'
 import { Button, FormControlLabel, Radio, TextField } from '@mui/material';
 import Appbar from '../Appbar/Appbar';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 
@@ -116,11 +117,11 @@ function Test() {
       .then(response => {
         console.log('Test results submitted successfully:', response.data);
         // You can add any additional logic or UI updates here
-        alert("thanks you")
+        toast.success("thank you for completing test")
       })
       .catch(error => {
         console.error('Error submitting test results:', error.message);
-        alert(error.message)
+        toast.error(error.message)
         // Handle errors or show error messages to the user
       });
   };

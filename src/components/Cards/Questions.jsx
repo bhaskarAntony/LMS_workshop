@@ -44,10 +44,11 @@ function Questions() {
       
   return (
     <div className='mcqs p-2 p-md-3'>
+        <p className="fs-4 text-warning ">Our Past Data Science Workshop</p>
         <MainVideo/>
         <div className="mcq-top d-flex justify-content-between align-items-center">
            <div>
-           <label htmlFor="" className='d-block fs-3'>Workshop Questions</label>
+           <label htmlFor="" className='d-block fs-3'>Present Workshop Questions</label>
             <small className='text-secondary'>Improve Your Learning Progress</small>
            </div>
            <div>
@@ -91,7 +92,7 @@ function Questions() {
                 <li key={index} className='mb-3'>
                   <div className="question d-flex align-items-center justify-content-between mb-3">
                         <h1 className="fs-5 fw-light text-">Question{index+1}: <span className='blur-question text-secondary'>{item.question.slice(0, 20)}</span></h1>
-                        <Button variant="contained" className='rounded-5'>Take Test</Button>
+                        <p className="fs-5 text-warning">Java</p>
                     </div>
                   
                 </li>

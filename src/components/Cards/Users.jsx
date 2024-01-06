@@ -9,9 +9,12 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import { toast } from 'react-toastify';
+import { Shimmer } from 'react-shimmer';
 
 function Users() {
     const [userData, setUserData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [colors, setColors] = useState([
         "#FF9999",
         "#C36A2D",
@@ -33,6 +36,7 @@ function Users() {
     useEffect(() => {
         axios.get(`https://dull-trousers-deer.cyclic.app/api/users/list`)
           .then(response => {
+            setLoading(false)
             const limitedUserData = response.data.slice(0, 8);
             setUserData(limitedUserData);  
 
@@ -40,7 +44,7 @@ function Users() {
           })
           .catch(error => {
             // Handle errors
-            alert('Error uploading data:', error.message);
+            toast.warning( error.message);
             console.log(error)
           });
       }, []);
@@ -83,52 +87,68 @@ function Users() {
             <th>Status</th>
         </tr>
         {
-  userData.map((item, index) => (
-    <tr key={index} className='mb-3'>
-      <td className='d-flex align-items-center gap-2'>
-        {/* Generate a random index within the colors array length */}
-        <div className="name-icon" style={{ backgroundColor: colors[Math.floor(Math.random() * colors.length)] }}>
-          {item.name[0]}
-        </div>
-        <IconButton
-          aria-label="more"
-          id="long-button"
-          aria-controls={open ? 'long-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
-          aria-haspopup="true"
-          onClick={handleClick}
-        >
-          <MoreVertIcon />
-        </IconButton>
-        <Menu
-          id="long-menu"
-          MenuListProps={{
-            'aria-labelledby': 'long-button',
-          }}
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          PaperProps={{
-            style: {
-              maxHeight: ITEM_HEIGHT * 4.5,
-              width: '20ch',
-            },
-          }}
-        >
-          {options.map((option) => (
-            <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-              {option}
-            </MenuItem>
-          ))}
-        </Menu>
-      </td>
-      <td>{item.name}</td>
-      <td>
-        <BorderLinearProgress variant="determinate" value={50} />
-        <span className='mt-2 d-block text-success'>50%</span>
-      </td>
-    </tr>
-  ))
+          loading?(
+            Array(6)
+            .fill(null)
+            .map((_, index) => (
+            <>
+           <tr>
+            <th> <Shimmer width="100%" height={40} className='mb-3 rounded-3'/></th>
+            <th> <Shimmer width="100%" height={40} className='mb-3 rounded-3'/></th>
+            <th> <Shimmer width="100%" height={40} className='mb-3 rounded-3'/></th>
+           </tr>
+           
+            </>
+            ))
+          ):(
+            userData.map((item, index) => (
+              <tr key={index} className='mb-3'>
+                <td className='d-flex align-items-center gap-2'>
+                  {/* Generate a random index within the colors array length */}
+                  <div className="name-icon" style={{ backgroundColor: colors[Math.floor(Math.random() * colors.length)] }}>
+                    {item.name[0]}
+                  </div>
+                  <IconButton
+                    aria-label="more"
+                    id="long-button"
+                    aria-controls={open ? 'long-menu' : undefined}
+                    aria-expanded={open ? 'true' : undefined}
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                  >
+                    <MoreVertIcon />
+                  </IconButton>
+                  <Menu
+                    id="long-menu"
+                    MenuListProps={{
+                      'aria-labelledby': 'long-button',
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    PaperProps={{
+                      style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: '20ch',
+                      },
+                    }}
+                  >
+                    {options.map((option) => (
+                      <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </td>
+                <td>{item.name}</td>
+                <td>
+                  <BorderLinearProgress variant="determinate" value={50} />
+                  <span className='mt-2 d-block text-success'>50%</span>
+                </td>
+              </tr>
+            ))
+          )
+ 
 }
       </table>
     </div>

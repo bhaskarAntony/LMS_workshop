@@ -7,12 +7,16 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MainVideo from './MainVideo';
+import { Shimmer } from 'react-shimmer';
+import { toast } from 'react-toastify';
 
 function Video() {
     const [mcqData, setMcqData] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         axios.get(`https://dull-trousers-deer.cyclic.app/api/Asslist`)
           .then(response => {
+            setLoading(false)
             const limitedMcqData = response.data;
             setMcqData(limitedMcqData);  // Update to response.data
 
@@ -20,7 +24,7 @@ function Video() {
           })
           .catch(error => {
             // Handle errors
-            alert('Error uploading data:', error.message);
+            toast.error(error.message);
             console.log(error)
           });
       }, []);
@@ -86,6 +90,21 @@ function Video() {
         <hr />
       <ul className='m-0 p-0'>
         {
+          loading?(
+            Array(1)
+            .fill(null)
+            .map((_, index) => (
+            <>
+            <Shimmer width="100%" height={150} className='mb-3 rounded-3'/>
+            <Shimmer width="100%" height={15} className='mb-3 rounded-3'/>
+            <Shimmer width="100%" height={10} className='mb-1 rounded-3'/>
+            <Shimmer width="80%" height={10} className='mb-1 rounded-3'/>
+            <Shimmer width="75%" height={10} className='mb-3 rounded-3'/>
+            <Shimmer width="100%" height={60} className='mb-3 rounded-5'/>
+            <Shimmer width="100%" height={60} className='mb-3 rounded-5'/>
+            </>
+            ))
+          ):(
             mcqData.map((item, index)=>(
                 <li key={index} className='mb-3'>
                   <div className="video mb-3">
@@ -107,6 +126,7 @@ function Video() {
                   
                 </li>
             ))
+          )
         }
       </ul>
     </div>
