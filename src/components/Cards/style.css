@@ -49,3 +49,6 @@
 .take{
     min-width: 150px !important;
 }
+.title{
+    word-break:break-all !important;
+}

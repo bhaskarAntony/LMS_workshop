@@ -16,6 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Header from '../header/Header';
+import Sidebar from './Sidebar';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -159,7 +160,15 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }} className="appbar">
       <AppBar position="static" color="inherit" className="appbar">
         <Toolbar>
-        
+        <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"/>
+          </IconButton>
      
           <Search>
             <SearchIconWrapper>
@@ -202,6 +211,18 @@ export default function PrimarySearchAppBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      <div className="">
+                       
+                        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                        <div class="offcanvas-header text-end">
+                            
+                            <button type="button" class="btn-close text-end" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                          <Sidebar/>
+                        </div>
+                        </div>
+                        </div>
     </Box>
   );
 }

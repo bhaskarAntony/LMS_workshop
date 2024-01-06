@@ -13,6 +13,7 @@ import Mcqs from '../Cards/Mcqs';
 import MainVideo from '../Cards/MainVideo';
 import Video from '../Cards/Videos';
 import Users from '../Cards/Users';
+import Sidebar from '../Appbar/Sidebar';
 
 function Home() {
     const [userId, setUserId] = useState("")
@@ -93,7 +94,7 @@ function Home() {
        <div className="container-fluid overflow-hidden">
        <div className="row">
             <div className="col-12 col-md-3 col-lg-2 m-0 p-0">
-                
+                <Sidebar/>
             </div>
             <div className="col-12 col-md-9 col-lg-10 m-0 p-0 bg-light">
         <div className="dashboard">
