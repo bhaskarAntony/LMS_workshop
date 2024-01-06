@@ -46,7 +46,7 @@ function App() {
       <Router>
         <Routes>
          <Route path="/" element={<HomePage />} />
-          <Route path="/download/:link" element={<NoData />} />
+          <Route path="/PDF/:id" element={<NoData />} />
           <Route path="/signin" element={<Login />} />
           <Route path="/attend/assessment/:id" element={<Test />} />
           <Route path="/signup" element={<SignUp />} />

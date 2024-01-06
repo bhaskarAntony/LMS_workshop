@@ -119,7 +119,7 @@ function Video() {
                       <small className="text-secondary">{item.recordings.description}</small>
 
                   <a  href={item.recordings.video}>   <Button variant="contained" className='rounded-5 w-100 mt-3 p-3'>Watch Recordings</Button></a>
-                  <a href={`/download/${item.recordings.pdfLink}`}>   <Button variant="outlined" className='rounded-5 w-100 mt-3 p-3'>Download PDF</Button></a>
+                  <a href={`/PDF/${item._id}`}>   <Button variant="outlined" className='rounded-5 w-100 mt-3 p-3'>Download PDF</Button></a>
                     </div>
 
                     </div>

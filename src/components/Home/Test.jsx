@@ -7,6 +7,7 @@ import { Button, FormControlLabel, Radio, TextField } from '@mui/material';
 import Appbar from '../Appbar/Appbar';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Shimmer } from 'react-shimmer';
 
 
 
@@ -23,6 +24,7 @@ function Test() {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userId, setUserId] = useState("")
+  const [loading, setLoading] = useState(true)
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -50,12 +52,13 @@ function Test() {
     useEffect(() => {
         axios.get(`https://dull-trousers-deer.cyclic.app/api/assessments/${id}`)
           .then(response => {
+            setLoading(false);
             const shuffledQuestions = shuffleArray(response.data.assessments);
             console.log(response.data.assessments);
-            const selectedQuestions = shuffledQuestions.slice(0, 10);
-            setQuizData(selectedQuestions);
+            setQuizData(shuffledQuestions); // Make sure to set the shuffled questions
           })
           .catch(error => {
+            setLoading(true);
             alert('Error fetching quiz data:', error.message);
             console.log(error);
           });
@@ -155,58 +158,78 @@ function Test() {
             </div>
         <div className="col-12 col-sm-12 col-md-10 h-100 p-0 m-0">
             <Appbar/>
-        <div className="main-mcq">
-        <div className='p-3 p-md-5 mt-0'>
-        {!isQuizCompleted ? (
-        <div>
-          <p className='fs-4 text-main-danger'> {currentQuestion + 1}) {quizData[currentQuestion]?.question}</p>
-          {quizData[currentQuestion]?.options.map((option, index) => (
-            <div key={index} className="q-option">
-             
-                <FormControlLabel 
-                name="quizOption"
-                className='text-900 fs-4 mx-2'
-                value={option}
-                onChange={() => handleAnswerSelection(option)}
-                checked={userAnswers[currentQuestion] === option}
-                 control={<Radio />}
-                  label={option}
-                   />
-              <label>{option}</label>c
-             
-            </div>
-
-          ))}
-           <div className="text-center mt-3 d-flex gap-2 justify-content-center actions">
-            <div className='d-flex gap-2'>
-            <Button variant="contained" className='p-3' onClick={handlePreviousQuestion}><i className="bi bi-chevron-double-left"></i>Previous</Button>
-              <Button variant="contained" className='p-3'onClick={handleNextQuestion}>Next <i className="bi bi-chevron-double-right"></i></Button>
-            </div>
-             
-            </div>
-        
-        </div>
-
-      ) : (
-        <div>
-           <div className="row">
-            <div className="col-md-6 offset-md-3">
-            <h1 className='fs-2 text-center'>Hello Developer 👋...</h1>
-          <p className='text-main-danger fs-3 text-center'>Your Score: {score} out of {quizData.length}</p>
-          <div className="mt-3">
-            <TextField id="outlined-basic" label="Developer Name" variant="outlined" type="text" value={userName} onChange={(e) => setUserName(e.target.value)}  className="mt-3 w-100"/> <br />
-        
-            <TextField id="outlined-basic" label="Phone Number" variant="outlined" type="tel" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} className="mt-3 w-100"/>
-            <br />
-            <Button variant="contained" className='w-100 mt-3 p-3' onClick={handleSubmitTest}>Submit<i className="bi bi-check"></i></Button>
-          </div>
-            </div>
-           </div>
-        </div>
-      )}
-        </div>
-        
-        </div>
+            
+            {
+                loading?(
+                    Array(1)
+                    .fill(null)
+                    .map((_, index) => (
+                    <div className='p-3'>
+                    <Shimmer width="80%" height={35} className='mb-3 rounded-3'/>
+                    <Shimmer width="60%" height={35} className='mb-3 rounded-3'/>
+                    <Shimmer width="30%" height={30} className='mb-4 rounded-3'/>
+                    <Shimmer width="30%" height={30} className='mb-4 rounded-3'/>
+                    <Shimmer width="30%" height={30} className='mb-4 rounded-3'/>
+                    <Shimmer width="30%" height={30} className='mb-4 rounded-3'/>
+                   
+                    </div>
+                    ))
+                ):(
+                    <div className="main-mcq">
+                    <div className='p-3 p-md-5 mt-0'>
+                    {!isQuizCompleted ? (
+                    <div>
+                      <p className='fs-4 text-main-danger'> {currentQuestion + 1}) {quizData[currentQuestion]?.question}</p>
+                      {quizData[currentQuestion]?.options.map((option, index) => (
+                        <div key={index} className="q-option">
+                         
+                            <FormControlLabel 
+                            name="quizOption"
+                            className='text-900 fs-4 mx-2'
+                            value={option}
+                            onChange={() => handleAnswerSelection(option)}
+                            checked={userAnswers[currentQuestion] === option}
+                             control={<Radio />}
+                              label={option}
+                               />
+                          <label>{option}</label>c
+                         
+                        </div>
+            
+                      ))}
+                       <div className="text-center mt-3 d-flex gap-2 justify-content-center actions">
+                        <div className='d-flex gap-2'>
+                        <Button variant="contained" className='p-3' onClick={handlePreviousQuestion}><i className="bi bi-chevron-double-left"></i>Previous</Button>
+                          <Button variant="contained" className='p-3'onClick={handleNextQuestion}>Next <i className="bi bi-chevron-double-right"></i></Button>
+                        </div>
+                         
+                        </div>
+                    
+                    </div>
+            
+                  ) : (
+                    <div>
+                       <div className="row">
+                        <div className="col-md-6 offset-md-3">
+                        <h1 className='fs-2 text-center'>Hello Developer 👋...</h1>
+                      <p className='text-main-danger fs-3 text-center'>Your Score: {score} out of {quizData.length}</p>
+                      <div className="mt-3">
+                        <TextField id="outlined-basic" label="Developer Name" variant="outlined" type="text" value={userName} onChange={(e) => setUserName(e.target.value)}  className="mt-3 w-100"/> <br />
+                    
+                        <TextField id="outlined-basic" label="Phone Number" variant="outlined" type="tel" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} className="mt-3 w-100"/>
+                        <br />
+                        <Button variant="contained" className='w-100 mt-3 p-3' onClick={handleSubmitTest}>Submit<i className="bi bi-check"></i></Button>
+                      </div>
+                        </div>
+                       </div>
+                    </div>
+                  )}
+                    </div>
+                    
+                    </div>
+                )
+            }
+      
         </div>
      </div>
 
