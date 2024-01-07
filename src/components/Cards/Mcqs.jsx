@@ -99,8 +99,14 @@ function Mcqs() {
             mcqData.map((item, index)=>(
               <li key={index} className='mb-3'>
                 <div className="assessment d-flex align-items-center justify-content-between mb-3">
-                <h1 className="fs-5 fw-bold title d-flex align-items-center gap-2 justify-content-center"><i class="bi bi-journal-code text-main"></i> <span className="topic">{item.topic}</span></h1>
-                      <a href={`/attend/assessment/${item._id}`}><Button variant="contained" className='rounded-5'>Take Test</Button></a>
+                     <div className="row align-items-center">
+                      <div className="col-12 col-sm-12 col-md-8">
+                      <h1 className="fs-5 fw-bold title d-flex align-items-center gap-2 justify-content-center"><i class="bi bi-journal-code text-main"></i> {item.topic}</h1>
+                      </div>
+                      <div className="col-12 col-sm-12 col-md-4 text-center">
+                      <a href={`/attend/assessment/${item._id}`} className='w-100'><Button variant="contained" className='rounded-5'>Take Test</Button></a>
+                      </div>
+                     </div>
                   </div>
                 
               </li>
