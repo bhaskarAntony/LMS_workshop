@@ -3,19 +3,25 @@ import axios from 'axios';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../Database/firebase';
 import './style.css'
-import { Button, FormControlLabel, Radio, TextField } from '@mui/material';
+import { Button, FormControlLabel, Radio} from '@mui/material';
 import Appbar from '../Appbar/Appbar';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Shimmer } from 'react-shimmer';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Email from '../../templates/doubts';
 
+const URL = "https://email-api-r1kd.onrender.com"
 
 
 
 function Test() {
-
-    const {id} = useParams()
-    console.log("mm", id)
+const {id} = useParams()
   const [quizData, setQuizData] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState(Array(quizData.length).fill(''));
@@ -24,6 +30,7 @@ function Test() {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userId, setUserId] = useState("")
+  const [userDoubt, setDoubt] = useState("")
   const [loading, setLoading] = useState(true)
     useEffect(() => {
       const fetchData = async () => {
@@ -37,6 +44,7 @@ function Test() {
     
           if (user) {
             setUserId(user);
+            setUserEmail(user.email);
             console.log("uid", user.uid); // Log the user ID after setting it
           } else {
             console.log("user is logged out");
@@ -59,7 +67,7 @@ function Test() {
           })
           .catch(error => {
             setLoading(true);
-            alert('Error fetching quiz data:', error.message);
+            toast.error(error.message);
             console.log(error);
           });
       }, []);
@@ -128,6 +136,46 @@ function Test() {
         // Handle errors or show error messages to the user
       });
   };
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const firstEmail = async (a_email, uEmail, question, doubt) =>{
+    setLoading(true)
+    try {
+      let data = Email(uEmail, question, doubt);
+      let to = a_email;
+      let sub = "Wokshop Test Doubts";
+
+      let final = {
+        to,
+        subject: sub,
+        content: data,
+      };
+
+      setLoading(true);
+
+      await axios
+        .post(`${URL}/api/send/mail`, final)
+        .then((res) => {
+          setLoading(false)
+          setOpen(false);
+          setDoubt("")
+          toast.success("your doubt has been recieved, we will get back to you.")
+        
+        })
+        .catch((err) => toast.error(err.message));
+    } catch (err) {
+      console.log(err.message);
+      setOpen(false);
+      setLoading(false)
+      toast.error(err.message)
+    }
+  }
 
   return (
   <div className="test-container container-fluid ">
@@ -201,6 +249,30 @@ function Test() {
                         <div className='d-flex gap-2'>
                         <Button variant="contained" className='p-3' onClick={handlePreviousQuestion}><i className="bi bi-chevron-double-left"></i>Previous</Button>
                           <Button variant="contained" className='p-3'onClick={handleNextQuestion}>Next <i className="bi bi-chevron-double-right"></i></Button>
+                          <Button variant="contained" onClick={handleClickOpen} className='bg-warning'><i class="bi bi-chat-dots mx-2 fs-4"></i>send Doubt</Button>
+                            <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>have you any doubt?</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+          {quizData[currentQuestion]?.question}
+          </DialogContentText>
+           <TextField
+            autoFocus
+            margin="dense"
+            id="doubt"
+            label="Type Your Doubt"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={userDoubt} onChange={(e) => setDoubt(e.target.value)}
+          />
+       
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={()=>firstEmail("bhaskarbabucm6@gmail.com", userEmail, `${quizData[currentQuestion]?.question}`, userDoubt)}>send</Button>
+        </DialogActions>
+      </Dialog>
                         </div>
                          
                         </div>
@@ -232,6 +304,7 @@ function Test() {
       
         </div>
      </div>
+    
 
   </div>
   );
