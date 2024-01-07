@@ -17,6 +17,7 @@ import Sidebar from '../Appbar/Sidebar';
 import Questions from '../Cards/Questions';
 import { toast } from 'react-toastify';
 import Loading from '../Cards/Loading';
+import UserScore from '../Cards/UserScore';
 
 function Home() {
     const [userId, setUserId] = useState("")
@@ -153,11 +154,14 @@ function Home() {
              </div>
  
              <div className="col-12 col-sm-12 col-md-7 mb-4">
-               <div className="card1 h-100 d-flex flex-column justify-content-between mcq">
+               <div className="card1 d-flex flex-column justify-content-between mcq">
                  <Mcqs/>
                  <div className="text-center">
                  <Button variant="outlined" className='rounded-5'>View All</Button>
                  </div>
+               </div>
+               <div className="card1 align-self-center">
+                <UserScore/>
                </div>
              </div>
              <div className="col-12 col-sm-12 col-md-5 mb-4">

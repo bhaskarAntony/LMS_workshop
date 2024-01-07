@@ -120,7 +120,7 @@
 
   }
   .users th{
-    background-color: #216ec2;
+    background-color: rgb(33, 110, 194);
     color: #fff;
   }
   .users th, .users td, .attendee span,.attendee small{
@@ -134,5 +134,8 @@
   }
   .attendee span,.attendee small{
     max-width: 100px !important;
+  }
+  .score{
+    max-width: 150px !important;
   }
   /* ..attendee span */
