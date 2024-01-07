@@ -171,15 +171,10 @@ function Home() {
                </div>
              </div>
              <div className="col-12 col-sm-12 col-md-7 mb-4">
-               <div className="card1 h-100 p-2 p-md-4">
-                <div className="user-top d-flex align-items-center justify-content-between">
-                <div>
+               <div className="card1 h-100 p-3 p-md-4">
+                <div className="user-top">
                 <span className="fs-3 d-block">Developers</span>
                  <small className="text-secondary d-block">Workshop Registered Users</small>
-                </div>
-                 <div className="users-search d-flex gap-2 align-items-center">
-                   <TextField id="outlined-basic" label="find users" variant="outlined"/>
-                 </div>
                 </div>
                 <hr />
                 <Users/>
