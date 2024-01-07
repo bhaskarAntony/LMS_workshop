@@ -142,7 +142,7 @@ function Users() {
                   </div>
                 </td>
                 <td><b>{item.name}</b> <br />
-                    <small className='text-secondary'> {item.email}</small> </td>
+                    <small className='text-secondary text-muted'> {item.email}</small> </td>
                 <td>
                   <BorderLinearProgress variant="determinate" value={1} />
                   <span className='mt-2 d-block text-success'>0%</span>

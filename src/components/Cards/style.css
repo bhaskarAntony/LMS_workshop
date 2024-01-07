@@ -123,3 +123,12 @@
     background-color: #216ec2;
     color: #fff;
   }
+  .users th, .users td, .attendee span, .assessment span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; 
+  }
+  .assessment span{
+    max-width: 80% !important;
+  }
