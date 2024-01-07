@@ -229,7 +229,7 @@ const {id} = useParams()
                     <div>
                       <p className='fs-4 text-main-danger'> {currentQuestion + 1}) {quizData[currentQuestion]?.question}</p>
                       {quizData[currentQuestion]?.options.map((option, index) => (
-                        <div key={index} className="q-option">
+                        <div key={index} className="q-option d-flex gap-2 align-items-center">
                          
                             <FormControlLabel 
                             name="quizOption"
@@ -240,7 +240,6 @@ const {id} = useParams()
                              control={<Radio />}
                               label={option}
                                />
-                          <label>{option}</label>c
                          
                         </div>
             
