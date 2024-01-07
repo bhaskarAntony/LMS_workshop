@@ -5,7 +5,7 @@ import { auth } from '../../Database/firebase';
 import './style.css'
 import { Button, FormControlLabel, Radio} from '@mui/material';
 import Appbar from '../Appbar/Appbar';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Shimmer } from 'react-shimmer';
 import TextField from '@mui/material/TextField';
@@ -32,6 +32,7 @@ const {id} = useParams()
   const [userId, setUserId] = useState("")
   const [userDoubt, setDoubt] = useState("")
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -129,6 +130,7 @@ const {id} = useParams()
         console.log('Test results submitted successfully:', response.data);
         // You can add any additional logic or UI updates here
         toast.success("thank you for completing test")
+        navigate('/')
       })
       .catch(error => {
         console.error('Error submitting test results:', error.message);

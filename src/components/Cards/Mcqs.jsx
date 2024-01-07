@@ -99,13 +99,23 @@ function Mcqs() {
             mcqData.map((item, index)=>(
               <li key={index} className='mb-3'>
                 <div className="assessment d-flex align-items-center justify-content-between mb-3">
-                     <div className="row align-items-center">
+                     {/* <div className="row align-items-center">
                       <div className="col-12 col-sm-12 col-md-8">
                       <h1 className="fs-5 fw-bold title d-flex align-items-center gap-2 justify-content-center"><i class="bi bi-journal-code text-main"></i> {item.topic}</h1>
                       </div>
                       <div className="col-12 col-sm-12 col-md-4 text-center">
-                      <a href={`/attend/assessment/${item._id}`} className='w-100'><Button variant="contained" className='rounded-5'>Take Test</Button></a>
+                    
                       </div>
+                     </div> */}
+                     <div className="row align-items-center">
+                      <div className="col-3 col-md-5">
+                      <img src="https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/illustrations/card-website-analytics-2.png" alt="image" className='w-100' />
+                      </div>
+                      <div className="col-9 col-md-7">
+                        <h1 className="fs-5 fw-bold">{item.topic}</h1>
+                        <p className="fs-5">complete the assaignments and get rewards</p>
+                        <a href={`/attend/assessment/${item._id}`} className='w-100 mt-3'><Button variant="contained" className='rounded-5'>Take Test</Button></a>
+                        </div>
                      </div>
                   </div>
                 
