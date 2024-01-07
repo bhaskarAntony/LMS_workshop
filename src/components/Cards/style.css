@@ -130,6 +130,6 @@
     max-width: 150px; 
   }
   .attendee span,.attendee small{
-    width: 100%;
-    max-width: 200px !important;
+    max-width: 100px !important;
   }
+  /* ..attendee span */
