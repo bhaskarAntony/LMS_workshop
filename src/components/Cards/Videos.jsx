@@ -109,7 +109,7 @@ function Video() {
                 <li key={index} className='mb-3'>
                   <div className="video mb-3">
                     <div className="video-header">
-                      <a href='/' className="video-icon">
+                      <a href={item.recordings.video} className="video-icon">
                       <i class="bi bi-play-fill"></i>
                       </a>
                       <img src="https://images.prismic.io/edapp-website/ZDczM2M0ZGQtOGEwYi00ZDVhLWI1MjQtMjIzZjY1NDMxYjNl_training-record-software-png_iaa?auto=compress%2Cformat&rect=10%2C0%2C1340%2C700&w=768&h=627&q=15" alt="video" className='w-100 rounded-3'/>

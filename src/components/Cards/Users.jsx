@@ -83,7 +83,7 @@ function Users() {
       <table>
         <tr>
             <th>Profile</th>
-            <th>NAME</th>
+            <th>Name</th>
             <th>Status</th>
         </tr>
         {
@@ -105,9 +105,7 @@ function Users() {
               <tr key={index} className='mb-3'>
                 <td className='d-flex align-items-center gap-2'>
                   {/* Generate a random index within the colors array length */}
-                  <div className="name-icon" style={{ backgroundColor: colors[Math.floor(Math.random() * colors.length)] }}>
-                    {item.name[0]}
-                  </div>
+                 
                   <IconButton
                     aria-label="more"
                     id="long-button"
@@ -139,11 +137,15 @@ function Users() {
                       </MenuItem>
                     ))}
                   </Menu>
+                  <div className="name-icon" style={{ backgroundColor: colors[Math.floor(Math.random() * colors.length)] }}>
+                    {item.name[0]}
+                  </div>
                 </td>
-                <td>{item.name}</td>
+                <td><b>{item.name}</b> <br />
+                    <small className='text-secondary'> {item.email}</small> </td>
                 <td>
-                  <BorderLinearProgress variant="determinate" value={50} />
-                  <span className='mt-2 d-block text-success'>50%</span>
+                  <BorderLinearProgress variant="determinate" value={1} />
+                  <span className='mt-2 d-block text-success'>0%</span>
                 </td>
               </tr>
             ))

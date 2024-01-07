@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Loading from '../Cards/Loading';
+import Google from './Google';
+import Facebook from './Facebook';
 
 
 const SignUp = () => {
@@ -50,6 +52,7 @@ const SignUp = () => {
         toast.success("Account has been created")
         navigate('/signin') // Uncomment if you are using a navigation library
       } catch (error) {
+        setLoading(false)
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error(errorCode, errorMessage);
@@ -74,18 +77,20 @@ const SignUp = () => {
            <h2>Create New Account</h2>
            <div className="mt-3">
           <label>Username</label>
-           <TextField fullWidth label="Your Name" id="fullWidth" type="text" className='mt-2' value={name} onChange={(e) => setName(e.target.value)} />
+           <TextField fullWidth label="Your Name" id="fullWidth" type="text" className='mt-2 w-100' value={name} onChange={(e) => setName(e.target.value)} />
           </div>
           <div className="mt-3">
           <label>Email</label>
-           <TextField fullWidth label="Your Email" id="fullWidth" type="email" className='mt-2' value={email} onChange={(e) => setEmail(e.target.value)} />
+           <TextField fullWidth label="Your Email" id="fullWidth" type="email" className='mt-2 w-100' value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div className="mt-3">
           <label>Password</label>
-           <TextField fullWidth label="Your Password" id="fullWidth" type="password" className='mt-2' value={password} onChange={(e) => setPassword(e.target.value)} />
+           <TextField fullWidth label="Your Password" id="fullWidth" type="password" className='mt-2 w-100' value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
           <p className='mt-2'>Do you have Already Account? <a href="/signin">Sign in</a></p>
            <Button variant="contained" onClick={handleLogin} className='w-100 mt-3 p-3'>Create Account</Button>
+           <p className="text-center mt-3 text-secondary">or</p>
+           <Google/>
            </div>
            </div>
           </div>

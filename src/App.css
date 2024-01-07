@@ -5,6 +5,9 @@
   --secondary-color:#000;
   --black:#ffffff;
 }
+*{
+  letter-spacing: 1.1px;
+}
 
 .App{
   background-color:var(--black) ;

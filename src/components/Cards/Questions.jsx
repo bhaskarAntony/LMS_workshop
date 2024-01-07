@@ -11,11 +11,11 @@ import MainVideo from './MainVideo';
 function Questions() {
     const [mcqData, setMcqData] = useState([]);
     useEffect(() => {
-        axios.get(`https://dull-trousers-deer.cyclic.app/api/Mcqlist`)
+        axios.get(`https://dull-trousers-deer.cyclic.app/api/scoresList`)
           .then(response => {
-            const limitedMcqData = response.data.slice(0, 6);
+            const sortedMcqData = response.data.sort((a, b) => b.score - a.score);
+            const limitedMcqData = sortedMcqData.slice(0, 6);
             setMcqData(limitedMcqData);  // Update to response.data
-
             console.log(response.data);  // Log the actual data
           })
           .catch(error => {
@@ -44,11 +44,11 @@ function Questions() {
       
   return (
     <div className='mcqs p-2 p-md-3'>
-        <p className="fs-4 text-warning ">Our Past Data Science Workshop</p>
-        <MainVideo/>
-        <div className="mcq-top d-flex justify-content-between align-items-center">
+        {/* <p className="fs-4 text-warning ">Our Past Data Science Workshop</p>
+        <MainVideo/> */}
+        <div className="mcq-top d-flex justify-content-between align-items-center mt-4">
            <div>
-           <label htmlFor="" className='d-block fs-3'>Present Workshop Questions</label>
+           <label htmlFor="" className='d-block fs-3'>Workshop Test Attendees</label>
             <small className='text-secondary'>Improve Your Learning Progress</small>
            </div>
            <div>
@@ -90,15 +90,24 @@ function Questions() {
         {
             mcqData.map((item, index)=>(
                 <li key={index} className='mb-3'>
-                  <div className="question d-flex align-items-center justify-content-between mb-3">
-                        <h1 className="fs-5 fw-light text-">Question{index+1}: <span className='blur-question text-secondary'>{item.question.slice(0, 20)}</span></h1>
-                        <p className="fs-5 text-warning">Java</p>
+                  <div className="attendee d-flex align-items-center justify-content-between mb-3">
+                       <div className='d-flex gap-2'>
+                       <img src="https://static.vecteezy.com/system/resources/thumbnails/018/742/015/small/minimal-profile-account-symbol-user-interface-theme-3d-icon-rendering-illustration-isolated-in-transparent-background-png.png" alt="" className="profile" />
+                       <div>
+                        <span className="fs-5 d-block">{item.name}</span>
+                        <small className="text-secondary d-block">{item.email}</small>
+                       </div>
+                       </div>
+                       <Button variant='outlined' className='rounded-5'>{item.score}/21</Button>
                     </div>
                   
                 </li>
             ))
         }
       </ul>
+      <div className="text-center">
+        <Button variant='contained' className='rounded-5'>View all</Button>
+      </div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 // Login.js
 import React, { useState } from 'react';
 import { auth, database } from '../../Database/firebase';
-import {  signInWithEmailAndPassword  } from 'firebase/auth';
+import {  GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup  } from 'firebase/auth';
 import { ref, set } from "firebase/database";
 import { Button, TextField } from '@mui/material';
 import './style.css'
@@ -9,6 +9,7 @@ import loginImage from '../images/login.svg'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from '../Cards/Loading';
+import Google from './Google';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -32,6 +33,7 @@ const Login = () => {
             navigate('/');
         })
         .catch((error) => {
+          setLoading(false)
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
@@ -41,6 +43,7 @@ const Login = () => {
         alert(error.message);
       }
     };
+
   
     return (
       <div className='login-container container'>
@@ -65,6 +68,8 @@ const Login = () => {
            </div>
            <p className='mt-2'>You Don't have Account? <a href="/signup">create Account</a></p>
             <Button variant="contained" onClick={handleLogin} className='w-100 mt-3 p-3'>Login</Button>
+            <p className="text-center mt-3 text-secondary">or</p>
+            <Google/>
             </div>
             </div>
            </div>

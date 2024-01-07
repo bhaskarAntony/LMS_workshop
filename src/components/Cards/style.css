@@ -25,16 +25,15 @@
     padding: 10px;
 }
 .users table tr td .name-icon{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     /* background-color: #f8b312; */
     border-radius: 100px;
-    border: 2px solid #f8b312;
     padding: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #fff;
 }
@@ -100,4 +99,27 @@
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+  .profile{
+    width: 60px;
+    height: 60px;
+  }
+  .users table{
+    border-radius: 20px !important;
+    overflow: hidden;
+    padding: 10px;
+  }
+  .users tr{
+    padding: 10px;
+    background-color: #3cdbff0f;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .users tr:hover{
+    background-color: #3cdbff39;
+
+  }
+  .users th{
+    background-color: #216ec2;
+    color: #fff;
   }
