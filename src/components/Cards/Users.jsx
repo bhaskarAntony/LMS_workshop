@@ -2,13 +2,8 @@ import { Button } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import './style.css'
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import { toast } from 'react-toastify';
 import { Shimmer } from 'react-shimmer';
 
@@ -31,7 +26,6 @@ function Users() {
         "#F8FE85",
         "#BEB000"
     ])
-    const [random, setRandom] = useState();
     const [Randomcolor, setRandomColor] = useState()
     useEffect(() => {
         axios.get(`https://dull-trousers-deer.cyclic.app/api/users/list`)
@@ -48,23 +42,6 @@ function Users() {
             console.log(error)
           });
       }, []);
-      const options = [
-        'Chat',
-        'Ask Doubt',
-        'Profile',
-  
-      ];
-      
-      const ITEM_HEIGHT = 48;
-      
-        const [anchorEl, setAnchorEl] = React.useState(null);
-        const open = Boolean(anchorEl);
-        const handleClick = (event) => {
-          setAnchorEl(event.currentTarget);
-        };
-        const handleClose = () => {
-          setAnchorEl(null);
-        };
         const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
             height: 10,
             borderRadius: 5,
@@ -82,7 +59,7 @@ function Users() {
         
       <table>
         <tr>
-            <th>Profile</th>
+            <th className='firstdata'>Profile</th>
             <th>Name</th>
             <th>Status</th>
         </tr>
@@ -93,9 +70,9 @@ function Users() {
             .map((_, index) => (
             <>
            <tr>
-            <th> <Shimmer width="100%" height={40} className='mb-3 rounded-3'/></th>
-            <th> <Shimmer width="100%" height={40} className='mb-3 rounded-3'/></th>
-            <th> <Shimmer width="100%" height={40} className='mb-3 rounded-3'/></th>
+            <td> <Shimmer width="100%" height={40} className='mb-3 rounded-3'/></td>
+            <td> <Shimmer width="100%" height={40} className='mb-3 rounded-3'/></td>
+            <td> <Shimmer width="100%" height={40} className='mb-3 rounded-3'/></td>
            </tr>
            
             </>
@@ -103,40 +80,7 @@ function Users() {
           ):(
             userData.map((item, index) => (
               <tr key={index} className='mb-3'>
-                <td className='d-flex align-items-center gap-2'>
-                  {/* Generate a random index within the colors array length */}
-                 
-                  <IconButton
-                    aria-label="more"
-                    id="long-button"
-                    aria-controls={open ? 'long-menu' : undefined}
-                    aria-expanded={open ? 'true' : undefined}
-                    aria-haspopup="true"
-                    onClick={handleClick}
-                  >
-                    <MoreVertIcon />
-                  </IconButton>
-                  <Menu
-                    id="long-menu"
-                    MenuListProps={{
-                      'aria-labelledby': 'long-button',
-                    }}
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    PaperProps={{
-                      style: {
-                        maxHeight: ITEM_HEIGHT * 4.5,
-                        width: '20ch',
-                      },
-                    }}
-                  >
-                    {options.map((option) => (
-                      <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-                        {option}
-                      </MenuItem>
-                    ))}
-                  </Menu>
+                <td className='firstdata'>
                   <div className="name-icon" style={{ backgroundColor: colors[Math.floor(Math.random() * colors.length)] }}>
                     {item.name[0]}
                   </div>

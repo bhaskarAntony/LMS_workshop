@@ -129,6 +129,9 @@
     text-overflow: ellipsis;
     max-width: 150px; 
   }
+  .firstdata{
+    max-width: 100px !important;
+  }
   .attendee span,.attendee small{
     max-width: 100px !important;
   }
