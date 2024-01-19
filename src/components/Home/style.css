@@ -1,7 +1,7 @@
 .sidebar{
     height: 100vh;
     overflow: auto;
-    background-color:#fff;
+    background-color:#0e0e0e;
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
 }
 
@@ -12,11 +12,11 @@
 }
 .sidebar ul li a{
     padding: 5px;
-    /* background-color: #d9d8d825; */
+    /* background-color: #d5d3d30c; */
     margin-top: 15px;
     border-radius: 5px;
     display: block;
-    color: #8e8e8e;
+    color: #e1e1e1;
     text-decoration: none;
     font-size: 1.1rem;
     display: flex;
@@ -60,6 +60,9 @@
 .progressSkill{
     height: 150px !important;
 }
+.progress{
+    filter: blur(2px);
+}
 .email{
     word-break: break-all;
 }
@@ -79,6 +82,11 @@
 }
 .workshop-card{
     background-color: #7367f0;
+   word-break: break-all;
+
+}
+.workshop-card h1{
+   word-break: break-all;
 }
 .speaker img{
     width: 50px;

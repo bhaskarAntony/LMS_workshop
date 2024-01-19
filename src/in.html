@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        const data = {
+            userData:"visited",
+            username:"bhaskar"
+        }
+        const options = {
+            method:"POST",
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body:JSON.stringify(data),
+        }
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                // User is leaving the page
+                console.log("User is leaving the page");
+                fetch('', options)
+                .then(res=>{
+
+                })
+                .then(data=>{
+
+                })
+                .catch((error)=>{
+                    console.log(error)
+                })
+            } else {
+                // User is back on the page
+                console.log("User is back on the page");
+            }
+        });
+       
+    </script>
+</body></html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online/Offline Events</title>
+</head>
+<body>
+
+    <p id="status"></p>
+
+    <script>
+        const statusElement = document.getElementById('status');
+
+        function updateOnlineStatus() {
+            statusElement.textContent = navigator.onLine ? 'Online' : 'Offline';
+        }
+
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+
+        // Initial status check
+        updateOnlineStatus();
+    </script>
+</body>
+</html> -->
+

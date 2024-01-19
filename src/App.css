@@ -36,3 +36,23 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color01);
 }
+
+.app-right, .app-left{
+  height: 90vh;
+  overflow: auto;
+}
+.event-tab ul li::marker{
+  content: '✅ ';
+}
+.event-tab{
+  min-height: 300px;
+  border-radius: 10px;
+}
+ul li{
+  margin-bottom: 10px;
+
+}
+.users-event{
+  position: sticky;
+  top: 0;
+}

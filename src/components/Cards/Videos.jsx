@@ -9,7 +9,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MainVideo from './MainVideo';
 import { Shimmer } from 'react-shimmer';
 import { toast } from 'react-toastify';
-
+import mainVideo from '.././images/thumbnail.jpg'
 function Video() {
     const [mcqData, setMcqData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -109,17 +109,17 @@ function Video() {
                 <li key={index} className='mb-3'>
                   <div className="video mb-3">
                     <div className="video-header">
-                      <a href={item.recordings.video} className="video-icon">
+                      <a href='/recordings' className="video-icon">
                       <i class="bi bi-play-fill"></i>
                       </a>
-                      <img src="https://images.prismic.io/edapp-website/ZDczM2M0ZGQtOGEwYi00ZDVhLWI1MjQtMjIzZjY1NDMxYjNl_training-record-software-png_iaa?auto=compress%2Cformat&rect=10%2C0%2C1340%2C700&w=768&h=627&q=15" alt="video" className='w-100 rounded-3'/>
+                      <img src={mainVideo} alt="video" className='w-100 rounded-3'/>
                     </div>
                     <div className="video-body">
-                      <h1 className="fs-4 mt-3">{item.recordings.title}</h1>
-                      <small className="text-secondary">{item.recordings.description}</small>
+                      <h1 className="fs-4 mt-3">MERN fullstack development</h1>
+                      <small className="text-secondary">Secrets Blueprint for High-Paid MERN Development. Career Live Q&A Session With Experts, Get Easiest Part To Learn MERN, Get E-Certificate and Study Meterial</small>
 
-                  <a  href={item.recordings.video}>   <Button variant="contained" className='rounded-5 w-100 mt-3 p-3'>Watch Recordings</Button></a>
-                  <a href={`/PDF/${item._id}`}>   <Button variant="outlined" className='rounded-5 w-100 mt-3 p-3'>Download PDF</Button></a>
+                  <a  href='/recordings'>   <Button variant="contained" className='rounded-5 w-100 mt-3 p-3'>Watch Recordings</Button></a>
+                  <a href='/nopdf'>   <Button variant="outlined" className='rounded-5 w-100 mt-3 p-3'>Download PDF</Button></a>
                     </div>
 
                     </div>

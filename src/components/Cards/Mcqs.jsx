@@ -44,7 +44,7 @@ function Mcqs() {
         };
       
   return (
-    <div className='mcqs p-2 p-md-4'>
+    <div className='mcqs p-2 p-md-4' >
         <div className="mcq-top d-flex justify-content-between align-items-center">
            <div>
            <label htmlFor="" className='d-block fs-3'>Assessment</label>
@@ -98,7 +98,7 @@ function Mcqs() {
            ):(
             mcqData.map((item, index)=>(
               <li key={index} className='mb-3'>
-                <div className="assessment d-flex align-items-center justify-content-between mb-3">
+                <div disabled className="assessment d-flex align-items-center justify-content-between mb-3">
                      {/* <div className="row align-items-center">
                       <div className="col-12 col-sm-12 col-md-8">
                       <h1 className="fs-5 fw-bold title d-flex align-items-center gap-2 justify-content-center"><i class="bi bi-journal-code text-main"></i> {item.topic}</h1>
@@ -112,9 +112,9 @@ function Mcqs() {
                       <img src="https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/illustrations/card-website-analytics-2.png" alt="image" className='w-100' />
                       </div>
                       <div className="col-9 col-md-7">
-                        <h1 className="fs-5 fw-bold">{item.topic}</h1>
+                        <h1 className="fs-5 fw-bold">MERN Fullstack Bootcamp</h1>
                         <p className="fs-5">complete the assaignments and get rewards</p>
-                        <a href={`/attend/assessment/${item._id}`} className='w-100 mt-3'><Button variant="contained" className='rounded-5'>Take Test</Button></a>
+                        <span data-bs-toggle="modal" data-bs-target="#staticBackdrop" className='w-100 mt-3'><Button variant="contained" className='rounded-5'> <i class="bi bi-lock" ></i>Take Test</Button></span>
                         </div>
                      </div>
                   </div>
@@ -124,6 +124,23 @@ function Mcqs() {
         )
             }
       </ul>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer d-flex gap-3">
+        <Button variant='outlined' data-bs-dismiss="modal">Remind me later</Button>
+       <a href="https://be-practical.com/"> <Button variant='contained'>Unclock</Button></a>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   )
 }

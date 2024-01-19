@@ -104,35 +104,36 @@ function Home() {
       ):(
         <div className="container-fluid overflow-hidden">
         <div className="row">
-             <div className="col-12 col-md-3 col-lg-2 m-0 p-0  d-lg-block d-none d-sm-none d-md-block">
-                 <Sidebar/>
-             </div>
-             <div className="col-12 col-md-9 col-lg-10 m-0 p-0 bg-light">
+             
+             <div className="col-12 col-md-12 col-lg-12 m-0 p-0 bg-light">
          <div className="dashboard">
          {/* <Header/> */}
-         <Appbar/>
+         
+         {/* <Appbar/> */}
+
          <div className="dashboard-body p-3">
            <div className="row">
              <div className="col-12 col-sm-12 col-md-6 mb-2 mb-4">
                <div className="workshop-card card1 h-100 p-3">
                  <div className="row align-items-center h-100">
-                   <div className="col-10 col-sm-9 col-md-8 d-flex flex-column justify-content-between">
+                   <div className="col-12 col-sm-12 col-md-12 d-flex flex-column justify-content-between">
                     <div>
-                    <h1 className="fs-4 text-white">Java fullstack development</h1>
-                     <p className='text-light'>Acquire valuable, hands-on insights to launch your career in java fullstack development effectively</p>
+                    <h1 className="fs-4 text-white">MERN fullstack development</h1>
+                     <small className='text-light'>Acquire valuable, hands-on insights to launch your career in MERN fullstack development effectively</small> <br />
+                     <a href='/recordings' className='btn p-2 bg-white mt-2 rounded-5'><i class="bi bi-camera-video"></i> Watch Recordings</a>
                    </div>
                    <hr />
                    <div className="speaker d-flex gap-2 align-items-center text-white">
                      <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=338&ext=jpg&ga=GA1.1.1412446893.1704412800&semt=ais" alt="avathar" />
                      <div>
-                       <span className='d-block fs-4 fw-bold'>Atul</span>
-                       <small className="text-light fw-light">Java trainer</small>
+                       <span className='d-block fs-4 fw-bold'>Ganesh</span>
+                       <small className="text-light fw-light">MERN Trainer</small>
                      </div>
                    </div>
                     </div>
-                   <div className="col-2 col-sm-3 col-md-4">
+                   {/* <div className="col-2 col-sm-3 col-md-4">
                    <img src="https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/illustrations/card-website-analytics-1.png" alt="image" className="w-100"  />
-                   </div>
+                   </div> */}
                  </div>
                </div>
              </div>

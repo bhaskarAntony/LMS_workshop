@@ -1,5 +1,5 @@
 import React from 'react'
-import mainVideo from '../../components/images/main-video.mp4'
+import mainVideo from '.././images/thumbnail.jpg'
 import './style.css'
 
 function MainVideo() {

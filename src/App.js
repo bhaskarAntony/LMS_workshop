@@ -12,6 +12,10 @@ import { auth } from './Database/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Bootcamp from './pages/HomePage/Bootcamp';
+import Event from './pages/Event';
+import Sidebar from './components/Appbar/Sidebar';
+import Appbar from './components/Appbar/Appbar';
 
 function App() {
   const [userId, setUserId] = useState("")
@@ -41,17 +45,27 @@ function App() {
     fetchData();
   }, [])
   return (
-    <div className="App">
-       <ToastContainer />
+    <div className="App container-fluid p-0 overflow-hidden">
+      <Appbar/>
+     <div className='row'>
+     <div className='col-12 col-sm-12 col-md-2 app-left d-md-block d-none d-sm-none'>
+      <Sidebar/>
+      </div>
+      <div className='col-12 col-sm-12 col-md-10 app-right'>
+      <ToastContainer />
       <Router>
         <Routes>
-         <Route path="/" element={<HomePage />} />
+         <Route path="/" element={ <HomePage/>} />
           <Route path="/PDF/:id" element={<NoData />} />
+          <Route path="/nopdf" element={<NoData />} />
           <Route path="/signin" element={<Login />} />
           <Route path="/attend/assessment/:id" element={<Test />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/recordings" element={<Event />} />
         </Routes>
       </Router>
+      </div>
+     </div>
     </div>
   );
 }
