@@ -10,7 +10,7 @@ function Event() {
            <div className="event-left p-3 ">
             <h1 className="fs-3 mb-3">MERN Fullstack developemnt Bootcamp</h1>
            <div className="video-container">
-           <iframe width="100%" height="400" src="https://www.youtube.com/embed/J9KemP3xqH0?si=5qvWTuDwcr583RTX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className='w-100 rounded-3 bg-dark'></iframe>
+           <iframe width="100%" height="350" src="https://www.youtube.com/embed/J9KemP3xqH0?si=5qvWTuDwcr583RTX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className='w-100 rounded-3 bg-dark'></iframe>
             </div>
             <div className="about-event py-3">
                 <div className="row align-items-center">
