@@ -147,7 +147,10 @@ function Home() {
                </div>
              </div>
              <div className="col-8 col-sm-6 col-md-3 mb-4">
-               <div className="card1 progress h-100 d-flex align-items-center justify-content-center">
+               <div className="  card1 progress h-100 d-flex align-items-center justify-content-center">
+               <div className="over">
+                <Button variant='contained' >Unlock</Button>
+               </div>
                <div id="chart">
        <ReactApexChart options={chartData.options} series={chartData.series} type="radialBar" height={250} />
      </div>
@@ -182,7 +185,7 @@ function Home() {
                  <small className="text-secondary d-block">Workshop Registered Users</small>
                 </div>
                 <hr />
-                <Users/>
+                <Users NumUsers={8}/>
                 <div className="text-center mt-4">
                  <Button variant="outlined" className='rounded-5'>View All</Button>
                  </div>

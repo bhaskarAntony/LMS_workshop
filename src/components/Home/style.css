@@ -60,9 +60,9 @@
 .progressSkill{
     height: 150px !important;
 }
-.progress{
+/* .progress{
     filter: blur(2px);
-}
+} */
 .email{
     word-break: break-all;
 }
@@ -113,5 +113,20 @@
 }
 .progress{
     background-color: #FFEDC6 !important;
+}
+.card1{
+    position: relative;
+}
+.over{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 

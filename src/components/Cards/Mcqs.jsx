@@ -128,15 +128,16 @@ function Mcqs() {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Take Your First Test</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+       To unlock the test join our fullTime Course by clicking below..
       </div>
       <div class="modal-footer d-flex gap-3">
         <Button variant='outlined' data-bs-dismiss="modal">Remind me later</Button>
-       <a href="https://be-practical.com/"> <Button variant='contained'>Unclock</Button></a>
+        <a href="https://be-practical.com/"> <Button variant='contained'>Join Now</Button></a>
+       <a href="tel:+919242079119"> <Button variant='contained' className='bg-success'>Call us</Button></a>
       </div>
     </div>
   </div>

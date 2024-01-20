@@ -1,0 +1,8 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "javascriptreact",
+            "scheme": "file"
+        }
+    ]
+}

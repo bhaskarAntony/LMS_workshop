@@ -54,7 +54,7 @@ export default function BasicTabs() {
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Details" {...a11yProps(0)} />
           <Tab label="Cirriculum" {...a11yProps(1)} />
-          <Tab label="Students" {...a11yProps(2)} />
+          <Tab label="Materials" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>

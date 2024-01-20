@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 import { toast } from 'react-toastify';
 import { Shimmer } from 'react-shimmer';
 
-function Users() {
+function Users({NumUsers}) {
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [colors, setColors] = useState([
@@ -31,7 +31,7 @@ function Users() {
         axios.get(`https://dull-trousers-deer.cyclic.app/api/users/list`)
           .then(response => {
             setLoading(false)
-            const limitedUserData = response.data.slice(0, 8);
+            const limitedUserData = response.data.slice(0, NumUsers);
             setUserData(limitedUserData);  
 
             console.log(response.data);  
@@ -87,7 +87,7 @@ function Users() {
                 </td>
                 <td><b>{item.name}</b> <br />
                     <small className='text-secondary text-muted'> {item.email}</small> </td>
-                <td>
+                <td>                                                                      
                   <BorderLinearProgress variant="determinate" value={1} />
                   <span className='mt-2 d-block text-success'>0%</span>
                 </td>
