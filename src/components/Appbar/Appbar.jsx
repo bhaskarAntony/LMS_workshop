@@ -160,7 +160,8 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }} className="appbar">
       <AppBar position="static" color="inherit" className="appbar">
         <Toolbar>
-        <IconButton
+       <div className='d-block d-sm-block d-md-none'>
+       <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -169,6 +170,7 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"/>
           </IconButton>
+       </div>
      
           <Search>
             <SearchIconWrapper>

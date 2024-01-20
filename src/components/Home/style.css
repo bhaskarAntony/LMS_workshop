@@ -123,10 +123,18 @@
     height: 100%;
     left: 0;
     top: 0;
-    backdrop-filter: blur(90px);
+    backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
+    flex-direction: column;
+    text-align: center;
 
+}
+.over .bi-lock{
+    color: #7367f0;
+    font-size: 6rem;
+    padding: 10px;
 }
 

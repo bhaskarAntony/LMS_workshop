@@ -56,3 +56,31 @@ ul li{
   position: sticky;
   top: 0;
 }
+
+/* pdf */
+.pdf-view{
+  min-height: 100vh;
+}
+
+/* small-pdf */
+.small-pdf{
+  background: linear-gradient(45deg, #574bdb61, #a5f7f74f);
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 100px;
+}
+.small-pdf .bi-journal-text{
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #0f2ddc61, #a5f7f74f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 100px;
+}
+.users-event{
+  height: 100vh;
+  overflow: auto;
+}

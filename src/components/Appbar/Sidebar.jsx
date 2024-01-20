@@ -4,7 +4,7 @@ function Sidebar() {
   return (
     <div className="sidebar p-2">
                   <div className="logo p-3">
-                    {/* <img src="https://bepractical.s3.us-east-2.amazonaws.com/brand-logo.cc6e3cf088a8fd3005b1.jpg" alt="logo" width={180} /> */}
+                    <img src="https://be-practical.com/images/Be-logo.png" alt="logo" width={180} />
                   </div>
                      
                         <ul>

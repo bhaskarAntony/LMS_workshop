@@ -95,14 +95,14 @@ function UserScore() {
         // </div>
         <div className="text-center">
         <img src={notFoundImage} alt="image" width={180} />
-        <span className='fs-4 d-block mb-3 fw-bold'>No user data available</span>
+        <span className='fs-4 d-block mb-3 fw-bold'>Your friends are on the way to success</span>
         <small className="text-secondary">We can't Display Your Progress <b>Unlock your test and attend  test to see your progress</b></small>
       </div>
       ) : (
         <div className="text-center">
           <img src={notFoundImage} alt="image" width={180} />
-          <span className='fs-4 d-block mb-3 fw-bold'>No user data available</span>
-          <small className="text-secondary">We can't Display Your Progress <b>Attend the test to see your progress</b></small>
+          <span className='fs-4 d-block mb-3 fw-bold'>Your friends are on the way to success</span>
+          <small className="text-secondary">The content will be Displayed  <b>Attend the test to see your progress</b></small>
         </div>
       )}
     </div>

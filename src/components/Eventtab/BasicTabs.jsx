@@ -119,8 +119,8 @@ export default function BasicTabs() {
       <CustomTabPanel value={value} index={2}>
       <div className="text-center">
           <img src={notFoundImage} alt="image" width={180} />
-          <span className='fs-4 d-block mb-3 fw-bold'>Student details is not Available</span>
-          <small className="text-secondary">We can't Display Student Details <b>Complete the video and attend the test to see Student Details</b></small>
+          <span className='fs-4 d-block mb-3 fw-bold'>Your Content is Brewing</span>
+          <small className="text-secondary">No content available <b>Complete the video and get the exciting study material </b></small>
         </div>
       </CustomTabPanel>
     </Box>

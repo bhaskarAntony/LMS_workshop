@@ -158,7 +158,7 @@ transform: scale(1.5);
     background-color: rgb(33, 110, 194);
     color: #fff;
   }
-  .users th, .users td, .attendee span,.attendee small{
+  .users th, .users td, .attendee span,.attendee small, .title{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -174,3 +174,10 @@ transform: scale(1.5);
     max-width: 150px !important;
   }
   /* ..attendee span */
+  .youtube-card{
+    background-color: #6b666613;
+  }
+  .recordings a{
+    text-decoration: none;
+    color: #000;
+  }

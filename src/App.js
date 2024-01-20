@@ -16,6 +16,8 @@ import Bootcamp from './pages/HomePage/Bootcamp';
 import Event from './pages/Event';
 import Sidebar from './components/Appbar/Sidebar';
 import Appbar from './components/Appbar/Appbar';
+import Pdfviewer from './components/Pdfviewer';
+import PdfDownload from './pages/PdfDownload';
 
 function App() {
   const [userId, setUserId] = useState("")
@@ -61,7 +63,9 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/attend/assessment/:id" element={<Test />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/recordings" element={<Event />} />
+          <Route path="/recordings/:link" element={<Event />} />
+          <Route path="/pdfViewer/:id" element={<Pdfviewer />} />
+          <Route path="/download/:id" element={<PdfDownload />} />
         </Routes>
       </Router>
       </div>

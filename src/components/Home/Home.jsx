@@ -18,6 +18,10 @@ import Questions from '../Cards/Questions';
 import { toast } from 'react-toastify';
 import Loading from '../Cards/Loading';
 import UserScore from '../Cards/UserScore';
+import Recordings from '../Cards/Recordings';
+import Pdfs from '../Cards/Pdfs';
+import DigitalLibrary from '../digital/DigitalLibrary';
+import Poll from '../Poll/Poll';
 
 function Home() {
     const [userId, setUserId] = useState("")
@@ -140,16 +144,15 @@ function Home() {
              <div className="col-4 col-sm-6 col-md-3 mb-4">
                <div className="card1 h-100 library">
                 
-                 <div className="d-flex h-100 flex-column justify-content-between align-items-center p-2 align-items-center">
-                 <img src="https://cdn3d.iconscout.com/3d/premium/thumb/e-library-6848261-5607048.png?f=webp" alt="" className="w-100" />
-                     <h1 className="fs-4 text-center">Digital library</h1>
-                    </div>
+                <DigitalLibrary/>
                </div>
              </div>
              <div className="col-8 col-sm-6 col-md-3 mb-4">
                <div className="  card1 progress h-100 d-flex align-items-center justify-content-center">
                <div className="over">
-                <Button variant='contained' >Unlock</Button>
+                <Button variant='' className='display-3'><i className='bi bi-lock'></i></Button>
+                <p className="fs-4">Join the fulltime course to unlock</p>
+                  <a href="https://be-practical.com/advanced-full-stack-developers-course-in-bangalore/" target='_blank'> <Button variant='contained' className='rounded-5'>Join now</Button></a>
                </div>
                <div id="chart">
        <ReactApexChart options={chartData.options} series={chartData.series} type="radialBar" height={250} />
@@ -165,17 +168,20 @@ function Home() {
                  </div>
                </div>
                <div className="card1 align-self-center">
-                <UserScore/>
+                {/* <UserScore/> */}
+                <Poll/>
                </div>
              </div>
              <div className="col-12 col-sm-12 col-md-5 mb-4">
                <div className="card1 h-100">
                  <Video/>
+                 <Recordings/>
                </div>
              </div>
              <div className="col-12 col-sm-12 col-md-5 mb-4">
                <div className="card1 h-100">
-                <Questions/>
+                {/* <Questions/> */}
+                <Pdfs/>
                </div>
              </div>
              <div className="col-12 col-sm-12 col-md-7 mb-4">
@@ -186,6 +192,7 @@ function Home() {
                 </div>
                 <hr />
                 <Users NumUsers={8}/>
+                
                 <div className="text-center mt-4">
                  <Button variant="outlined" className='rounded-5'>View All</Button>
                  </div>

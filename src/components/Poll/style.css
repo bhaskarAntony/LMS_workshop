@@ -1,0 +1,45 @@
+.poll-top-card{
+    min-height: 150px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px #dfdfdf;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.poll{
+    background-color: #b6b6b659;
+    padding: 10px;
+    
+}
+progress {
+    -webkit-appearance: none;
+    min-height: 70px;
+  }
+  /* progress::-webkit-progress-bar {
+    background-color: aliceblue;
+  }
+
+  progress::-webkit-progress-value {
+    background-color: coral;
+  } */
+  .p-yes::-webkit-progress-bar {
+        background-color: rgb(240, 248, 255);
+  }
+  .p-yes::-moz-progress-bar {
+    background-color: #31fc45a5 !important;
+  }
+  .p-yes::-webkit-progress-value{
+    background-color: #09e16ac9 !important;
+  }
+
+  .p-no::-webkit-progress-bar {
+    background-color: rgb(240, 248, 255);
+}
+.p-no::-moz-progress-bar {
+background-color: #fc3131a5 !important;
+}
+.p-no::-webkit-progress-value{
+background-color: #e10909c9 !important;
+}

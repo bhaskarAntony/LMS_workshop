@@ -136,8 +136,8 @@ function Mcqs() {
       </div>
       <div class="modal-footer d-flex gap-3">
         <Button variant='outlined' data-bs-dismiss="modal">Remind me later</Button>
-        <a href="https://be-practical.com/"> <Button variant='contained'>Join Now</Button></a>
-       <a href="tel:+919242079119"> <Button variant='contained' className='bg-success'>Call us</Button></a>
+        <a href="https://be-practical.com/" target='_blank'> <Button variant='contained'>Join Now</Button></a>
+       <a href="tel:+919242079119"  target='_blank'> <Button variant='contained' className='bg-success'>Call us</Button></a>
       </div>
     </div>
   </div>

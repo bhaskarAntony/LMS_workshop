@@ -109,7 +109,7 @@ function Video() {
                 <li key={index} className='mb-3'>
                   <div className="video mb-3">
                     <div className="video-header">
-                      <a href='/recordings' className="video-icon">
+                      <a href='/recordings/J9KemP3xqH0' className="video-icon">
                       <i class="bi bi-play-fill"></i>
                       </a>
                       <img src={mainVideo} alt="video" className='w-100 rounded-3'/>
@@ -118,8 +118,8 @@ function Video() {
                       <h1 className="fs-4 mt-3">MERN fullstack development</h1>
                       <small className="text-secondary">Secrets Blueprint for High-Paid MERN Development. Career Live Q&A Session With Experts, Get Easiest Part To Learn MERN, Get E-Certificate and Study Meterial</small>
 
-                  <a  href='/recordings'>   <Button variant="contained" className='rounded-5 w-100 mt-3 p-3'>Watch Recordings</Button></a>
-                  <a href='/nopdf'>   <Button variant="outlined" className='rounded-5 w-100 mt-3 p-3'>Download PDF</Button></a>
+                  <a  href='/recordings/J9KemP3xqH0'>   <Button variant="contained" className='rounded-5 w-100 mt-3 p-3'>Watch Recordings</Button></a>
+                  {/* <a href='/nopdf'>   <Button variant="outlined" className='rounded-5 w-100 mt-3 p-3'>Download PDF</Button></a> */}
                     </div>
 
                     </div>
