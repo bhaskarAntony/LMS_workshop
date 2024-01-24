@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { onAuthStateChanged } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { auth } from '../../Database/firebase';
 import './style.css'
 import { Person, PersonOffOutlined, VerifiedUser } from '@mui/icons-material';
@@ -36,10 +36,15 @@ function Chat() {
 
     useEffect(() => {
         fetchData();
+        const intervalId = setInterval(fetchData, 5000);
+
+        // Clean up the interval when the component is unmounted
+        return () => clearInterval(intervalId);
     }, []);
 
     useEffect(() => {
-        axios.get(`https://dull-trousers-deer.cyclic.app/api/chat/all`)
+        const chatsAll = async ()=>{
+            await axios.get(`https://dull-trousers-deer.cyclic.app/api/chat/all`)
             .then(response => {
                 setChatData(response.data);
             })
@@ -47,6 +52,11 @@ function Chat() {
                 alert('Error fetching data:', error.message);
                 console.log(error);
             });
+        }
+        const intervalId = setInterval(chatsAll, 1000);
+
+        // Clean up the interval when the component is unmounted
+        return () => clearInterval(intervalId);
     }, []);
 
     const sendMessage = async () => {
@@ -83,6 +93,20 @@ function Chat() {
             }
         }
     };
+    const chatContainerRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to the bottom when chatData changes
+    scrollToBottom();
+  }, [chatData]);
+
+  const scrollToBottom = () => {
+    // Scroll to the bottom of the chat container
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }
+  
 
     return (
        <div>
@@ -96,7 +120,7 @@ function Chat() {
     </div>
         <div className="hub">
            
-            <div className='chat'>
+            <div className='chat' ref={chatContainerRef}>
             {chatData.map((item, index) => (
                 <ul key={index} className='d-flex flex-column justify-content-end'>
                     <li className={  item.userId == userId? "align-self-end my-massage":"align-self-start your-message"}>{item.message}</li>

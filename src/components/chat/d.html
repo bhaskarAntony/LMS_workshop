@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            background-color: #0c0c0c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card1{
+            width: 100%;
+            height: 100vh;
+            padding: 10px;
+            background: conic-gradient(red, green, blue, gold, white, red, gold, teal, blue, yellow, lightblue, lightgreen, white, gold, gold, green, red,orange, pink, blue);
+            border-radius: 20px;
+            animation: anim 5s linear infinite;
+            inset: 3px;
+            
+        }
+        .card2{
+            width: 100%;
+            height: 300px;
+            /* background-color: #0c0c0c; */
+        }
+        @keyframes anim{
+            0%{
+                transform: rotate(360deg) scale(2);
+            }
+            100%{
+                transform: rotate(-360deg) scale(5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card1">
+        <div class="card2"></div>
+    </div>
+    
+</body>
+</html>

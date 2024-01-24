@@ -52,6 +52,7 @@ const data = [
   {
       title:"Deploy your project with ease",
       desc:"Get the complete roadmap to deploy your project with the help of git",
+      link:"Mf5cdGwryI8",
       thumbnail:i3,
   },
 

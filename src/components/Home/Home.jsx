@@ -125,7 +125,7 @@ function Home() {
                     <div>
                     <h1 className="fs-4 text-white">MERN fullstack development</h1>
                      <small className='text-light'>Acquire valuable, hands-on insights to launch your career in MERN fullstack development effectively</small> <br />
-                     <a href='/recordings' className='btn p-2 bg-white mt-2 rounded-5'><i class="bi bi-camera-video"></i> Watch Recordings</a>
+                    
                    </div>
                    <hr />
                    <div className="speaker d-flex gap-2 align-items-center text-white">
