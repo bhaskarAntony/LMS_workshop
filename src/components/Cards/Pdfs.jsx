@@ -32,7 +32,7 @@ function Pdfs() {
     <div>
         {
             pdfData.map((item, imdex)=>(
-                <div className="small-pdf overflow-hidden">
+                <div className="small-pdf">
                     <div className="row align-items-center">
                         <div className="col-2">
                         <i class="bi bi-journal-text display-6"></i>
@@ -42,7 +42,7 @@ function Pdfs() {
                             <small className="d-block">{item.description}</small>
                         </div>
                         <div className="col-2">
-                            <a href={`/pdfViewer/${item.id}`}><Button variant='contained' className='rounded-5 h-100 py-4'>View</Button></a>
+                            <a href={`/pdfViewer/${item.id}`}><Button variant='contained' className='rounded-5 h-100'>View</Button></a>
                         </div>
                     </div>
                 </div>

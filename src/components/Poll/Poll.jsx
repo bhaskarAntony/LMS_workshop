@@ -1,12 +1,19 @@
 import React from 'react'
 import './style.css'
 
+const data = [
+  {
+    title:"Data Since",
+    desc:"",
+    link:""
+  }
+]
 function Poll() {
   return (
     <div className='poll-container mt-3 p-3'>
          <span className="fs-3 d-block">Bootcamp Poll</span>
       <small className="text-secondary">Add your opinion in poll</small>
-      <div className="poll-top mt-3">
+      {/* <div className="poll-top mt-3">
         <div className="row">
             <div className="col-6">
             <div className="poll-top-card">
@@ -37,7 +44,8 @@ function Poll() {
         <span className="fs-2" id='poll-yes'>10%</span>
         </div>
       
-      </div>
+      </div> */}
+
     </div>
   )
 }

@@ -1,0 +1,61 @@
+.my-massage, .your-message, .loading{
+    background-color: rgba(116, 163, 250, 0.477);
+    padding: 10px;
+    min-width: 100px;
+    border-radius: 100px 2px 100px 100px;
+    position: relative;
+    margin-top: 20px;
+}
+.chat ul{
+    list-style-type: none;
+}
+.your-message{
+    background-color: rgba(177, 178, 180, 0.477);
+    border-radius: 2px 100px 100px 100px;
+}
+.loading{
+    background-color: rgba(177, 178, 180, 0.477);
+}
+.hub{
+    max-height: 500px;
+    overflow: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.chat{
+    height: 500px;
+    overflow: auto;
+}
+.chat small{
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: -19px;
+    right: 0;
+}
+.your-message small{
+    left: 0;
+}
+.chat-send{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    padding: 10px;
+    /* gap: 10px; */
+}
+.chat-send input{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border: 1px solid #858585;
+    border-radius: 100px 0px 0px 100px;
+}
+.chat-send button{
+    border-radius: 0px 100px 100px 0px;
+    border: none;
+    padding: 10px;
+    background-color: rgb(13, 111, 201);
+    color: #fff;
+}
