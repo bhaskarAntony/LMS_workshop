@@ -3,6 +3,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { auth } from '../../Database/firebase';
 import './style.css'
+import { Person, PersonOffOutlined, VerifiedUser } from '@mui/icons-material';
 
 function Chat() {
     const [chatData, setChatData] = useState([]);
@@ -38,7 +39,7 @@ function Chat() {
     }, []);
 
     useEffect(() => {
-        axios.get(`http://localhost:3200/api/chat/all`)
+        axios.get(`https://dull-trousers-deer.cyclic.app/api/chat/all`)
             .then(response => {
                 setChatData(response.data);
             })
@@ -57,14 +58,14 @@ function Chat() {
             };
 
             try {
-                await axios.post('http://localhost:3200/api/chat/add', messageData);
+                await axios.post('https://dull-trousers-deer.cyclic.app/api/chat/add', messageData);
                 console.log('Message sent successfully');
                 setLoading(false);
                 try {
                    
         
                     // Fetch updated chat data
-                    const updatedChatData = await axios.get('http://localhost:3200/api/chat/all');
+                    const updatedChatData = await axios.get('https://dull-trousers-deer.cyclic.app/api/chat/all');
                     
                     // Update the chatData state with the new data
                     setChatData(updatedChatData.data);
@@ -84,12 +85,22 @@ function Chat() {
     };
 
     return (
+       <div>
+         <div className="top d-flex gap-3 align-items-center bg-light p-2">
+     
+        <Person className='fs-1 border rounded-5'/>
+        <div>
+            <span className="d-block fs-4 fw-bold">Discussion Hub</span>
+            <span className="text-success fs-5">Online</span>
+        </div>
+    </div>
         <div className="hub">
+           
             <div className='chat'>
             {chatData.map((item, index) => (
                 <ul key={index} className='d-flex flex-column justify-content-end'>
-                    <li className={  item.userId == userId? "align-self-end my-massage":"align-self-start your-message"}>{item.message}<small>{new Date(item.date).toLocaleTimeString()}</small></li>
-                   
+                    <li className={  item.userId == userId? "align-self-end my-massage":"align-self-start your-message"}>{item.message}</li>
+                    {/* <small>{new Date(item.date).toLocaleTimeString()}</small> */}
                 </ul>
             ))}
           <div className="chat-bottom d-flex flex-column ">
@@ -110,6 +121,7 @@ function Chat() {
             <button onClick={sendMessage}>Send</button>
         </div>
         </div>
+       </div>
     );
 }
 
