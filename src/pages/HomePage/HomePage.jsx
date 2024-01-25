@@ -5,6 +5,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../Database/firebase';
 import NoUser from './NoUser';
+import Dashboard from '../../lmsComponents/Pages/Dashbord/Dashboard';
 
 function HomePage() {
   const [userId, setUserId] = useState("")
@@ -38,7 +39,8 @@ function HomePage() {
     <div>
     {
       myuser?(
-        <Home/>
+        // <Home/>
+        <Dashboard/>
       ):(
        <NoUser/>
       )

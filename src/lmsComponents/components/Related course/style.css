@@ -1,0 +1,15 @@
+.related li img{
+    width: 100px;
+    border-radius: 5px;
+}
+.related li{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.related-left{
+    flex: 1;
+}
+.related-right{
+    flex: 3;
+}

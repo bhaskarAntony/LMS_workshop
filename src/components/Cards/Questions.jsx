@@ -11,7 +11,7 @@ import MainVideo from './MainVideo';
 function Questions() {
     const [mcqData, setMcqData] = useState([]);
     useEffect(() => {
-        axios.get(`https://dull-trousers-deer.cyclic.app/api/scoresList`)
+        axios.get(`https://stormy-flannel-nightgown-ox.cyclic.app/api/scoresList`)
           .then(response => {
             const sortedMcqData = response.data.sort((a, b) => b.score - a.score);
             const limitedMcqData = sortedMcqData.slice(0, 6);

@@ -28,7 +28,7 @@ function Users({NumUsers}) {
     ])
     const [Randomcolor, setRandomColor] = useState()
     useEffect(() => {
-        axios.get(`https://dull-trousers-deer.cyclic.app/api/users/list`)
+        axios.get(`https://stormy-flannel-nightgown-ox.cyclic.app/api/users/list`)
           .then(response => {
             setLoading(false)
             const limitedUserData = response.data.slice(0, NumUsers);

@@ -41,7 +41,7 @@ function UserScore() {
       const fetchUserScores = async () => {
         if (uid) {
           try {
-            const response = await axios.get(`https://dull-trousers-deer.cyclic.app/api/scoresList`);
+            const response = await axios.get(`https://stormy-flannel-nightgown-ox.cyclic.app/api/scoresList`);
             const userScoreData = response.data.find(user => user.userId === uid);
             setUserScore(userScoreData);
           } catch (error) {

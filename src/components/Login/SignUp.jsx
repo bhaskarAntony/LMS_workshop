@@ -44,7 +44,7 @@ const SignUp = () => {
           userEmail: user.email,
         };
     
-        await axios.post('http://localhost:3200/api/addlmsUser', userData);
+        await axios.post('https://stormy-flannel-nightgown-ox.cyclic.app/api/addlmsUser', userData);
         
         console.log(user);
          setLoading(false)

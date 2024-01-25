@@ -12,12 +12,13 @@ import { auth } from './Database/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Bootcamp from './pages/HomePage/Bootcamp';
+// import Bootcamp from './pages/HomePage/Bootcamp';
 import Event from './pages/Event';
 import Sidebar from './components/Appbar/Sidebar';
 import Appbar from './components/Appbar/Appbar';
 import Pdfviewer from './components/Pdfviewer';
 import PdfDownload from './pages/PdfDownload';
+// import Bootcamp from './lmsComponents/pages/BootcampView/Bootcamp';
 
 function App() {
   const [userId, setUserId] = useState("")
@@ -66,6 +67,7 @@ function App() {
           <Route path="/recordings/:link" element={<Event />} />
           <Route path="/pdfViewer/:id" element={<Pdfviewer />} />
           <Route path="/download/:id" element={<PdfDownload />} />
+          {/* <Route path="/view" element={<Bootcamp />} /> */}
         </Routes>
       </Router>
       </div>

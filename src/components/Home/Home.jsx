@@ -55,7 +55,7 @@ function Home() {
    
 
     useEffect(() => {
-      axios.get(`https://dull-trousers-deer.cyclic.app/api/lmsUser/iTYwnxtDwiXNF9GMIJUmLBgqgp52`)
+      axios.get(`https://stormy-flannel-nightgown-ox.cyclic.app/api/lmsUser/iTYwnxtDwiXNF9GMIJUmLBgqgp52`)
         .then(response => {
           setLoading(false)
           setUserdata(response.data);  // Update to response.data

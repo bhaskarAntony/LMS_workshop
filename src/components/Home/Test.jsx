@@ -59,7 +59,7 @@ const {id} = useParams()
     }, [])
 
     useEffect(() => {
-        axios.get(`https://dull-trousers-deer.cyclic.app/api/assessments/${id}`)
+        axios.get(`https://stormy-flannel-nightgown-ox.cyclic.app/api/assessments/${id}`)
           .then(response => {
             setLoading(false);
             const shuffledQuestions = shuffleArray(response.data.assessments);
@@ -125,7 +125,7 @@ const {id} = useParams()
       userId: userId.uid,
     };
 
-    axios.post('https://dull-trousers-deer.cyclic.app/api/addScores', userData)
+    axios.post('https://stormy-flannel-nightgown-ox.cyclic.app/api/addScores', userData)
       .then(response => {
         console.log('Test results submitted successfully:', response.data);
         // You can add any additional logic or UI updates here

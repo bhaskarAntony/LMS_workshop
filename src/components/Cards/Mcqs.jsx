@@ -12,7 +12,7 @@ function Mcqs() {
     const [mcqData, setMcqData] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        axios.get(`https://dull-trousers-deer.cyclic.app/api/Asslist`)
+        axios.get(`https://stormy-flannel-nightgown-ox.cyclic.app/api/Asslist`)
           .then(response => {
             setLoading(false)
             const limitedMcqData = response.data.slice(0, 6);

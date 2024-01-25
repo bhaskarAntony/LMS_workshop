@@ -44,7 +44,7 @@ function Chat() {
 
     useEffect(() => {
         const chatsAll = async ()=>{
-            await axios.get(`https://dull-trousers-deer.cyclic.app/api/chat/all`)
+            await axios.get(`https://stormy-flannel-nightgown-ox.cyclic.app/api/chat/all`)
             .then(response => {
                 setChatData(response.data);
             })
@@ -68,14 +68,14 @@ function Chat() {
             };
 
             try {
-                await axios.post('https://dull-trousers-deer.cyclic.app/api/chat/add', messageData);
+                await axios.post('https://stormy-flannel-nightgown-ox.cyclic.app/api/chat/add', messageData);
                 console.log('Message sent successfully');
                 setLoading(false);
                 try {
                    
         
                     // Fetch updated chat data
-                    const updatedChatData = await axios.get('https://dull-trousers-deer.cyclic.app/api/chat/all');
+                    const updatedChatData = await axios.get('https://stormy-flannel-nightgown-ox.cyclic.app/api/chat/all');
                     
                     // Update the chatData state with the new data
                     setChatData(updatedChatData.data);
